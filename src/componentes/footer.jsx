@@ -35,7 +35,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-dark text-center text-white">
+    <footer className="text-center text-white">
       <div className="container p-4">
         <section className="mb-4">
           {redes.map((red) => (

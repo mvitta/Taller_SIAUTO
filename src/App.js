@@ -1,28 +1,32 @@
-import "./App.css";
-import React, { Fragment } from "react";
-import { Header } from "./componentes/header";
-import { Menu } from "./componentes/menu";
-import { Formulario } from "./componentes/formRegistro";
-import { Footer } from "./componentes/footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom"; // V6 -> nuevos cambios
+import { TGestionMecanico } from "./pages/gestionarMecanico";
+import { GestionarUsuariosPlanta } from "./pages/gestionarUsuariosPlanta";
+import { ConfigServicio } from "./pages/configurarServicios";
+import { VerCitas } from "./pages/verAgendaCitas";
+import { ProgramarCitas } from "./pages/programarCitas";
+import { ServAsignados } from "./pages/serviciosAsignados";
+import { ServProceso } from "./pages/servicioEnProceso";
+import { ServTerminados } from "./pages/serviciosTerminados";
 
 function App() {
   return (
-    <Fragment>
-      <header className="p-3 bg-dark text-white">
-        <Header />
-      </header>
-      <div className="container-fluid">
-        <div className="row">
-          <Menu />
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <Formulario />
-          </main>
-          <footer className="bg-dark text-center text-white">
-            <Footer />
-          </footer>
-        </div>
-      </div>
-    </Fragment>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/GestionarUsuariosDePlanta"
+            element={<GestionarUsuariosPlanta />}
+          />
+          <Route path="/GestionarMecanicos" element={<TGestionMecanico />} />
+          <Route path="/ConfigurarServicios" element={<ConfigServicio />} />
+          <Route path="/VerAgendaCitas" element={<VerCitas />} />
+          <Route path="/ProgramaCitas" element={<ProgramarCitas />} />
+          <Route path="/ServiciosAsignados" element={<ServAsignados />} />
+          <Route path="/ServiciosEnProcesos" element={<ServProceso />} />
+          <Route path="/ServiciosTerminados" element={<ServTerminados />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

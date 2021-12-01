@@ -1,59 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Menu() {
+  const [sesion] = useState("admin");
   const opcionesMenu = [
     {
       id: 1,
-      enlace: "#!",
       valor: "Perfil",
+      permisos: ["mecanico", "planta", "admin"],
+      ruta: "/Perfil",
     },
 
     {
       id: 2,
-      enlace: "#!",
       valor: "Gestionar usuarios de planta",
+      permisos: ["admin"],
+      ruta: "/GestionarUsuariosDePlanta",
     },
 
     {
       id: 3,
-      enlace: "#!",
       valor: "Gestionar mecanicos",
+      permisos: ["planta", "admin"],
+      ruta: "/GestionarMecanicos",
     },
 
     {
       id: 4,
-      enlace: "#!",
       valor: "Configurar servicios",
+      permisos: ["planta", "admin"],
+      ruta: "/ConfigurarServicios",
     },
 
     {
       id: 5,
-      enlace: "#!",
       valor: "Ver agenda de citas",
+      permisos: ["planta", "admin"],
+      ruta: "/VerAgendaCitas",
     },
 
     {
       id: 6,
-      enlace: "#!",
       valor: "Programa citas",
+      permisos: ["planta", "admin"],
+      ruta: "/ProgramaCitas",
     },
 
     {
       id: 7,
-      enlace: "#!",
       valor: "Servicios asignados",
+      permisos: ["mecanico", "planta", "admin"],
+      ruta: "/ServiciosAsignados",
     },
 
     {
       id: 8,
-      enlace: "#!",
       valor: "Servicios en proceso",
+      permisos: ["mecanico", "planta", "admin"],
+      ruta: "/ServiciosEnProcesos",
     },
 
     {
       id: 9,
-      enlace: "#!",
       valor: "Servicios terminados",
+      permisos: ["mecanico", "planta", "admin"],
+      ruta: "/ServiciosTerminados",
     },
   ];
 
@@ -64,14 +75,17 @@ export function Menu() {
     >
       <div className="position-sticky pt-3">
         <ul className="nav flex-column">
-          {opcionesMenu.map((elemento) => (
-            <li className="nav-item" key={elemento.id}>
-              <a className="nav-link" href={elemento.enlace}>
-                <span data-feather="gift"></span>
-                {elemento.valor}
-              </a>
-            </li>
-          ))}
+          {opcionesMenu.map(
+            (elemento) =>
+              // si en el vector de permisos se encuenta lo que esta almacenado en sesion, muestra el elemento
+              elemento.permisos.includes(sesion) && (
+                <li className="nav-item" key={elemento.id}>
+                  <Link className="nav-link" to={elemento.ruta}>
+                    {elemento.valor}
+                  </Link>
+                </li>
+              )
+          )}
         </ul>
       </div>
     </nav>
