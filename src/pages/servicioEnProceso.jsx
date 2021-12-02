@@ -2,6 +2,7 @@ import { Header } from "../componentes/header";
 import { Menu } from "../componentes/menu";
 import { ServiciosEnProceso } from "../componentes/servicioEnProceso";
 import { Footer } from "../componentes/footer";
+import { Titulo } from "../componentes/titulo";
 
 export function ServProceso() {
   return (
@@ -13,6 +14,7 @@ export function ServProceso() {
         <div className="row">
           <Menu />
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <Titulo titulo="Servicios en proceso" />
             <ServiciosEnProceso />
           </main>
           <footer className="fondo text-center text-white">

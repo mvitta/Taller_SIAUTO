@@ -20,48 +20,62 @@ export function Menu() {
 
     {
       id: 3,
+      valor: "Registrar usuario de planta",
+      permisos: ["admin"],
+      ruta: "/registrarUsuarioPlanta",
+    },
+
+    {
+      id: 4,
       valor: "Gestionar mecanicos",
       permisos: ["planta", "admin"],
       ruta: "/GestionarMecanicos",
     },
 
     {
-      id: 4,
+      id: 5,
+      valor: "Registrar mecanico",
+      permisos: ["admin"],
+      ruta: "/registrarMecanico",
+    },
+
+    {
+      id: 6,
       valor: "Configurar servicios",
       permisos: ["planta", "admin"],
       ruta: "/ConfigurarServicios",
     },
 
     {
-      id: 5,
+      id: 7,
       valor: "Ver agenda de citas",
       permisos: ["planta", "admin"],
       ruta: "/VerAgendaCitas",
     },
 
     {
-      id: 6,
+      id: 8,
       valor: "Programa citas",
       permisos: ["planta", "admin"],
       ruta: "/ProgramaCitas",
     },
 
     {
-      id: 7,
+      id: 9,
       valor: "Servicios asignados",
       permisos: ["mecanico", "planta", "admin"],
       ruta: "/ServiciosAsignados",
     },
 
     {
-      id: 8,
+      id: 10,
       valor: "Servicios en proceso",
       permisos: ["mecanico", "planta", "admin"],
       ruta: "/ServiciosEnProcesos",
     },
 
     {
-      id: 9,
+      id: 11,
       valor: "Servicios terminados",
       permisos: ["mecanico", "planta", "admin"],
       ruta: "/ServiciosTerminados",

@@ -1,12 +1,17 @@
 import React from "react";
 
 export function TablaGestionMecanico() {
+  const styleButton = {
+    marginLeft: "1%",
+    marginBottom: "3%",
+    marginTop: "10px",
+  };
   return (
     <div style={{ marginTop: "5%" }}>
       <form action="" method="post">
         <div className="table-responsive">
           <table className="table">
-            <thead className="bg-dark text-white">
+            <thead className="fondo text-white">
               <tr>
                 <th scope="col" style={{ textAlign: "center" }}>
                   Seleccionar
@@ -30,7 +35,7 @@ export function TablaGestionMecanico() {
                   Dirección
                 </th>
                 <th scope="col" style={{ textAlign: "center" }}>
-                  Número de teléfono
+                  teléfono
                 </th>
                 <th scope="col" style={{ textAlign: "center" }}>
                   Sexo
@@ -59,40 +64,15 @@ export function TablaGestionMecanico() {
               </tr>
             </tbody>
           </table>
-          <button
-            type="button"
-            className="btn btn-primary"
-            style={{ marginLeft: "1%", marginBottom: "3%", marginTop: "10px" }}
-          >
+          <button type="button" className="btn btn-primary" style={styleButton}>
             Generar reporte
           </button>
-          <button
-            type="button"
-            className="btn btn-success"
-            style={{ marginLeft: "1%", marginBottom: "3%", marginTop: "10px" }}
-          >
+          <button type="button" className="btn btn-success" style={styleButton}>
             Editar usuario mecánico
           </button>
-          <button
-            type="button"
-            className="btn btn-danger"
-            style={{ marginLeft: "1%", marginBottom: "3%", marginTop: "10px" }}
-          >
+          <button type="button" className="btn btn-danger" style={styleButton}>
             Eliminar usuario mecánico
           </button>
-          <a href="./AgregarMecanico.html" className="link-primary">
-            <button
-              type="button"
-              className="btn btn-danger"
-              style={{
-                marginLeft: "1%",
-                marginBottom: "3%",
-                marginTop: "10px",
-              }}
-            >
-              Añadir nuevo usuario mecánico
-            </button>
-          </a>
         </div>
       </form>
     </div>

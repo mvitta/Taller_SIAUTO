@@ -2,7 +2,7 @@ import React from "react";
 
 export function ServiciosAsignados() {
   return (
-    <di>
+    <div>
       <div style={{ marginTop: "3%" }}>
         <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
           <input
@@ -23,7 +23,7 @@ export function ServiciosAsignados() {
       <div style={{ margintop: "5%" }} className="table-responsive">
         <form action="" method="post">
           <table className="table">
-            <thead className="bg-dark text-white">
+            <thead className="fondo text-white">
               <tr>
                 <th scope="col">Seleccionar</th>
                 <th scope="col">No</th>
@@ -41,12 +41,7 @@ export function ServiciosAsignados() {
             <tbody>
               <tr>
                 <th>
-                  <input
-                    type="radio"
-                    name="options"
-                    id="option1"
-                    checked
-                  />
+                  <input type="radio" name="options" id="option1" />
                 </th>
                 <th>1</th>
                 <td>1</td>
@@ -57,36 +52,7 @@ export function ServiciosAsignados() {
                 <td>2021</td>
                 <td>
                   <select className="custom-select" id="inputGroupSelect01">
-                    <option selected>Abrir</option>
-                    <option value="1">Revision de frenos</option>
-                    <option value="2">Suspension</option>
-                    <option value="3">Alineacion</option>
-                  </select>
-                </td>
-                <td>23/11/2021</td>
-                <td style={{ color: "white", backgroundcolor: "red" }}>
-                  Sin iniciar
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  <input
-                    type="radio"
-                    name="options"
-                    id="option2"
-                  
-                  />
-                </th>
-                <th>2</th>
-                <td>2</td>
-                <td>Basilio</td>
-                <td>Laura</td>
-                <td>Chevrolet</td>
-                <td>Sail</td>
-                <td>2021</td>
-                <td>
-                  <select className="custom-select" id="inputGroupSelect01">
-                    <option selected>Abrir</option>
+                    <option defaultValue>Abrir</option>
                     <option value="1">Revision de frenos</option>
                     <option value="2">Suspension</option>
                     <option value="3">Alineacion</option>
@@ -99,12 +65,31 @@ export function ServiciosAsignados() {
               </tr>
               <tr>
                 <th>
-                  <input
-                    type="radio"
-                    name="options"
-                    id="option2"
-                
-                  />
+                  <input type="radio" name="options" id="option2" />
+                </th>
+                <th>2</th>
+                <td>2</td>
+                <td>Basilio</td>
+                <td>Laura</td>
+                <td>Chevrolet</td>
+                <td>Sail</td>
+                <td>2021</td>
+                <td>
+                  <select className="custom-select" id="inputGroupSelect01">
+                    <option defaultValue>Abrir</option>
+                    <option value="1">Revision de frenos</option>
+                    <option value="2">Suspension</option>
+                    <option value="3">Alineacion</option>
+                  </select>
+                </td>
+                <td>23/11/2021</td>
+                <td style={{ color: "white", backgroundColor: "red" }}>
+                  Sin iniciar
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option2" />
                 </th>
                 <th>3</th>
                 <td>3</td>
@@ -115,7 +100,7 @@ export function ServiciosAsignados() {
                 <td>2021</td>
                 <td>
                   <select className="custom-select" id="inputGroupSelect01">
-                    <option selected>Abrir</option>
+                    <option defaultValue>Abrir</option>
                     <option value="1">Revision de frenos</option>
                     <option value="2">Suspension</option>
                     <option value="3">Alineacion</option>
@@ -137,6 +122,6 @@ export function ServiciosAsignados() {
           </button>
         </form>
       </div>
-    </di>
+    </div>
   );
 }

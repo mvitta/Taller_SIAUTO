@@ -2,6 +2,7 @@ import { Header } from "../componentes/header";
 import { Menu } from "../componentes/menu";
 import { CitasDiarias } from "../componentes/citasDiarias";
 import { Footer } from "../componentes/footer";
+import { Titulo } from "../componentes/titulo";
 
 export function VerCitas() {
   return (
@@ -13,6 +14,7 @@ export function VerCitas() {
         <div className="row">
           <Menu />
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <Titulo titulo="Citas programadas"/>
             <CitasDiarias />
           </main>
           <footer className="fondo text-center text-white">

@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/style.css";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
@@ -23,27 +24,27 @@ export function Header() {
                 mb-md-0
               "
         >
-          <li>
-            <a href="#!" className="nav-link px-2 text-secondary">
-              Home
-            </a>
+          <li key={10}>
+            <Link className="nav-link px-2 text-white" to="/Inicio">
+              Inicio
+            </Link>
           </li>
-          <li>
+          <li key={20}>
             <a href="#!" className="nav-link px-2 text-white">
               Features
             </a>
           </li>
-          <li>
+          <li key={30}>
             <a href="#!" className="nav-link px-2 text-white">
               Pricing
             </a>
           </li>
-          <li>
+          <li key={40}>
             <a href="#!" className="nav-link px-2 text-white">
               FAQs
             </a>
           </li>
-          <li>
+          <li key={50}>
             <a href="#!" className="nav-link px-2 text-white">
               About
             </a>
@@ -61,10 +62,10 @@ export function Header() {
 
         <div className="text-end">
           <button type="button" className="btn btn-outline-light me-2">
-            Login
+            Iniciar Sesion
           </button>
           <button type="button" className="btn btn-warning">
-            Sign-up
+            Cerrar Sesion
           </button>
         </div>
       </div>

@@ -11,7 +11,7 @@ import pastillas from "../Imagenes/Imagenes servicio en proceso/pastillas.jpg";
 export function ServiciosEnProceso() {
   const todosServicios = [
     {
-      titulo: "Revision F.",
+      titulo: "Frenos",
       imagen: revision_f,
     },
     {
@@ -39,7 +39,7 @@ export function ServiciosEnProceso() {
       imagen: alineacion,
     },
     {
-      titulo: "Rotacion LL.",
+      titulo: "Rotacion",
       imagen: rotacion,
     },
   ];
@@ -49,8 +49,8 @@ export function ServiciosEnProceso() {
         <div className="row row-cols-3">
           {todosServicios.map((serv) => (
             <div className="col" style={{ textAlign: "center" }}>
-              <div>
-                <h1 className="display-6" style={{ fontWeight: "bold" }}>
+              <div className="fondo">
+                <h1 className="letras" style={{ fontWeight: "bold" }}>
                   {serv.titulo}
                 </h1>
               </div>
@@ -61,19 +61,12 @@ export function ServiciosEnProceso() {
                   Terminar Servicio
                 </button>
               </div>
-              <div
-                style={{
-                  backgroundColor: "green",
-                  color: "white",
-                  margin: "3%",
-                }}
-              >
+              <div className="terminado">
                 <h1 className="display-7">Terminado</h1>
               </div>
             </div>
           ))}
         </div>
-        ;
         <div style={{ margin: "4%", textAlign: "center" }}>
           <button type="submit" className="btn btn-primary">
             Completar Servicio

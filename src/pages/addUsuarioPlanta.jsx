@@ -1,10 +1,11 @@
+import React from 'react';
 import { Header } from "../componentes/header";
 import { Menu } from "../componentes/menu";
-import { AsignarCita } from "../componentes/asignarCita";
+import { Formulario } from "../componentes/formRegistro";
 import { Footer } from "../componentes/footer";
-import { Titulo } from "../componentes/titulo";
+import { Titulo } from '../componentes/titulo';
 
-export function ProgramarCitas() {
+export function AddUsuarioPlanta() {
   return (
     <div>
       <header className="p-3 fondo text-white">
@@ -13,9 +14,11 @@ export function ProgramarCitas() {
       <div className="container-fluid">
         <div className="row">
           <Menu />
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <Titulo titulo="Programar cita"/>
-            <AsignarCita />
+          <main
+            className="col-md-9 ms-sm-auto col-lg-10 px-md-4"
+          >
+            <Titulo titulo="Agregar Usuario de Planta" />
+            <Formulario />
           </main>
           <footer className="fondo text-center text-white">
             <Footer />
