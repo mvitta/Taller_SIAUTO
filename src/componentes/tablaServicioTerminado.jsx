@@ -27,7 +27,7 @@ export function ServiciosTerminados() {
               <tr>
                 <th scope="col">Seleccionar</th>
                 <th scope="col">No</th>
-                <th scope="col">ID del Servicio</th>
+                <th scope="col">ID</th>
                 <th scope="col">Mecánico</th>
                 <th scope="col">Cliente</th>
                 <th scope="col">Marca</th>

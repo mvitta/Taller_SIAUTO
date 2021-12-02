@@ -12,13 +12,13 @@ export function CitasDiarias() {
                   Seleccionar
                 </th>
                 <th scope="col" style={{ textAlign: "center" }}>
-                  ID de la cita
+                  ID
                 </th>
                 <th scope="col" style={{ textAlign: "center" }}>
-                  Placa del vehículo
+                  Placa
                 </th>
                 <th scope="col" style={{ textAlign: "center" }}>
-                  Revisión de frenos
+                  Frenos
                 </th>
                 <th scope="col" style={{ textAlign: "center" }}>
                   Pastillas
@@ -46,25 +46,15 @@ export function CitasDiarias() {
             <tbody>
               <tr>
                 <th>
-                  <input
-                    type="radio"
-                    name="options"
-                    id="option1"
-                  />
+                  <input type="radio" name="options" id="option1" />
                 </th>
                 <th style={{ textAlign: "center" }}>1</th>
                 <td style={{ textAlign: "center" }}>abc-123</td>
                 <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
                 <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
                 <td>
                   <input type="checkbox" style={{ marginLeft: "50%" }} />
@@ -73,69 +63,13 @@ export function CitasDiarias() {
                   <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
                 <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
                 <td>
                   <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
                 <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  <input
-                    type="radio"
-                    name="options"
-                    id="option1"
-                  />
-                </th>
-                <th style={{ textAlign: "center" }}>1</th>
-                <td style={{ textAlign: "center" }}>abc-123</td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
-                </td>
-                <td>
                   <input type="checkbox" style={{ marginLeft: "50%" }} />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
-                </td>
-                <td>
-                  <input type="checkbox" style={{ marginLeft: "50%" }} />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
-                </td>
-                <td>
-                  <input type="checkbox" style={{ marginLeft: "50%" }} />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
                 </td>
                 <td>
                   <input type="checkbox" style={{ marginLeft: "50%" }} />
@@ -143,11 +77,38 @@ export function CitasDiarias() {
               </tr>
               <tr>
                 <th>
-                  <input
-                    type="radio"
-                    name="options"
-                    id="option1"
-                  />
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <th style={{ textAlign: "center" }}>1</th>
+                <td style={{ textAlign: "center" }}>abc-123</td>
+                <td>
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
+                </td>
+                <td>
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
+                </td>
+                <td>
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
+                </td>
+                <td>
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
+                </td>
+                <td>
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
+                </td>
+                <td>
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
+                </td>
+                <td>
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
+                </td>
+                <td>
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
                 </th>
                 <th style={{ textAlign: "center" }}>1</th>
                 <td style={{ textAlign: "center" }}>abc-123</td>
@@ -165,28 +126,19 @@ export function CitasDiarias() {
                   <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
                 <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
                 <td>
                   <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
                 <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
                 <td>
                   <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
                 <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                  />
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
                 </td>
               </tr>
             </tbody>

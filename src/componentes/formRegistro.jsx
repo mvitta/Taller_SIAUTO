@@ -3,6 +3,7 @@ import React from "react";
 export function Formulario() {
   function prevenirEnvioFormulario(e) {
     e.preventDefault();
+    
     const msgNombre = document.getElementById("msgNombre");
     const msgApellido = document.getElementById("msgApellido");
     const msgCedula = document.getElementById("msgCedula");

@@ -17,7 +17,7 @@ export function TablaGestionMecanico() {
                   Seleccionar
                 </th>
                 <th scope="col" style={{ textAlign: "center" }}>
-                  ID del usuario
+                  ID
                 </th>
                 <th scope="col" style={{ textAlign: "center" }}>
                   Nombres
