@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // V6 -> nuevos cambios
+
+let inicioSesion = "";
+export { inicioSesion };
 
 export function Login() {
+  inicioSesion = "";
+  const [datos, setdatos] = useState([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    fetch("./api.json", {})
+      .then((res) => res.json())
+      .then((info) => {
+        setdatos(info);
+      });
+  }, []);
+
+  function validarSesion() {
+    const usuario = document.getElementById("exampleInputEmail1").value;
+
+    for (let i = 0; i < datos.length; i++) {
+      const registro = datos[i];
+      if (registro.rol === usuario) {
+        console.log(registro.rol);
+        inicioSesion = registro.rol;
+        irPagina();
+        break;
+      }
+    }
+  }
+
+  function irPagina() {
+    navigate("/Inicio");
+  }
+
   return (
     <div>
       <div
@@ -46,9 +79,10 @@ export function Login() {
             </div>
             <div style={{ textAlign: "center" }}>
               <button
-                type="submit"
+                type="button"
                 className="btn btn-primary"
                 style={{ margin: "1%" }}
+                onClick={validarSesion} // <---------------------- ir pagina
               >
                 Ingresar
               </button>

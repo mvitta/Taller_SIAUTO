@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "nombre": "jorge",
+    "apellido": "martinez",
+    "cedula": "123456",
+    "correo": "matrinez@correo.com",
+    "direccion": "calle 1 # 1 -1",
+    "telefono": "3001234567",
+    "sexo": "Masculino",
+    "rol": "planta"
+  },
+
+  {
+    "id": "2",
+    "nombre": "basilio",
+    "apellido": "diaz",
+    "cedula": "8919234",
+    "correo": "basilio@correo.com",
+    "direccion": "calle 1 # 1 -1",
+    "telefono": "3001234567",
+    "sexo": "Masculino",
+    "rol": "mecanico"
+  },
+
+  {
+    "id": "3",
+    "nombre": "maikol",
+    "apellido": "vitta",
+    "cedula": "1010101010",
+    "correo": "maikol@correo.com",
+    "direccion": "calle 1 # 1 -1",
+    "telefono": "3001234567",
+    "sexo": "Masculino",
+    "rol": "admin"
+  }
+]

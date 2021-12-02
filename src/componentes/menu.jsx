@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { inicioSesion } from "../componentes/formLogin";
 
 export function Menu() {
-  const [sesion] = useState("admin");
+  console.log(inicioSesion);
+  const [sesion] = useState(inicioSesion);
+  
   const opcionesMenu = [
     {
       id: 1,
