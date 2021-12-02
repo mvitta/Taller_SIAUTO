@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 export function Formulario() {
   function prevenirEnvioFormulario(e) {
@@ -117,12 +117,7 @@ export function Formulario() {
   }
 
   return (
-    <Fragment>
-      <div style={({ marginTop: "2%" }, { textAlign: "center" })}>
-        <h1 className="display-6">
-          <strong>Añadir Mecánico</strong>
-        </h1>
-      </div>
+    <div className="containerForm">
       <form
         className="row g-3"
         id="formulario"
@@ -222,6 +217,6 @@ export function Formulario() {
           </button>
         </div>
       </form>
-    </Fragment>
+    </div>
   );
 }

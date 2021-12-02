@@ -23,7 +23,7 @@ export function ServiciosTerminados() {
       <div style={{ marginTop: "5%" }} className="table-responsive">
         <form action="" method="post">
           <table className="table">
-            <thead className="bg-dark text-white">
+            <thead className="fondo text-white">
               <tr>
                 <th scope="col">Seleccionar</th>
                 <th scope="col">No</th>
@@ -45,8 +45,6 @@ export function ServiciosTerminados() {
                     type="radio"
                     name="options"
                     id="option1"
-                    autocomplete="off"
-                    checked
                   />
                 </th>
                 <th>1</th>
@@ -58,7 +56,7 @@ export function ServiciosTerminados() {
                 <td>2021</td>
                 <td>
                   <select className="custom-select" id="inputGroupSelect01">
-                    <option selected>Abrir</option>
+                    <option defaultValue>Abrir</option>
                     <option value="1">Revision de frenos</option>
                     <option value="2">Suspension</option>
                     <option value="3">Alineacion</option>
@@ -75,7 +73,6 @@ export function ServiciosTerminados() {
                     type="radio"
                     name="options"
                     id="option1"
-                    autocomplete="off"
                   />
                 </th>
                 <th>1</th>
@@ -87,7 +84,7 @@ export function ServiciosTerminados() {
                 <td>2021</td>
                 <td>
                   <select className="custom-select" id="inputGroupSelect01">
-                    <option selected>Abrir</option>
+                    <option defaultValue>Abrir</option>
                     <option value="1">Revision de frenos</option>
                     <option value="2">Suspension</option>
                     <option value="3">Alineacion</option>
@@ -104,7 +101,6 @@ export function ServiciosTerminados() {
                     type="radio"
                     name="options"
                     id="option1"
-                    autocomplete="off"
                   />
                 </th>
                 <th>1</th>
@@ -116,7 +112,7 @@ export function ServiciosTerminados() {
                 <td>2021</td>
                 <td>
                   <select className="custom-select" id="inputGroupSelect01">
-                    <option selected>Abrir</option>
+                    <option defaultValue>Abrir</option>
                     <option value="1">Revision de frenos</option>
                     <option value="2">Suspension</option>
                     <option value="3">Alineacion</option>

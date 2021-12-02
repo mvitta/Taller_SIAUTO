@@ -6,7 +6,7 @@ export function CitasDiarias() {
       <form action="" method="post">
         <div className="table-responsive">
           <table className="table">
-            <thead className="bg-dark text-white">
+            <thead className="fondo text-white">
               <tr>
                 <th scope="col" style={{ textAlign: "center" }}>
                   Seleccionar
@@ -50,8 +50,6 @@ export function CitasDiarias() {
                     type="radio"
                     name="options"
                     id="option1"
-                    autocomplete="off"
-                    checked
                   />
                 </th>
                 <th style={{ textAlign: "center" }}>1</th>
@@ -60,28 +58,16 @@ export function CitasDiarias() {
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                   />
                 </td>
                 <td>
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                   />
                 </td>
                 <td>
                   <input type="checkbox" style={{ marginLeft: "50%" }} />
-                </td>
-                <td>
-                  <input type="checkbox" style={{ marginLeft: "50%" }} />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                    checked
-                  />
                 </td>
                 <td>
                   <input type="checkbox" style={{ marginLeft: "50%" }} />
@@ -90,14 +76,21 @@ export function CitasDiarias() {
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
+                  />
+                </td>
+                <td>
+                  <input type="checkbox" style={{ marginLeft: "50%" }} />
+                </td>
+                <td>
+                  <input
+                    type="checkbox"
+                    style={{ marginLeft: "50%" }}
                   />
                 </td>
                 <td>
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                   />
                 </td>
               </tr>
@@ -107,7 +100,6 @@ export function CitasDiarias() {
                     type="radio"
                     name="options"
                     id="option1"
-                    autocomplete="off"
                   />
                 </th>
                 <th style={{ textAlign: "center" }}>1</th>
@@ -116,7 +108,6 @@ export function CitasDiarias() {
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                   />
                 </td>
                 <td>
@@ -126,7 +117,6 @@ export function CitasDiarias() {
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                   />
                 </td>
                 <td>
@@ -136,7 +126,6 @@ export function CitasDiarias() {
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                   />
                 </td>
                 <td>
@@ -146,7 +135,6 @@ export function CitasDiarias() {
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                   />
                 </td>
                 <td>
@@ -159,7 +147,6 @@ export function CitasDiarias() {
                     type="radio"
                     name="options"
                     id="option1"
-                    autocomplete="off"
                   />
                 </th>
                 <th style={{ textAlign: "center" }}>1</th>
@@ -171,7 +158,6 @@ export function CitasDiarias() {
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                     disabled
                   />
                 </td>
@@ -182,7 +168,6 @@ export function CitasDiarias() {
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                   />
                 </td>
                 <td>
@@ -192,7 +177,6 @@ export function CitasDiarias() {
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                   />
                 </td>
                 <td>
@@ -202,7 +186,6 @@ export function CitasDiarias() {
                   <input
                     type="checkbox"
                     style={{ marginLeft: "50%" }}
-                    checked
                   />
                 </td>
               </tr>

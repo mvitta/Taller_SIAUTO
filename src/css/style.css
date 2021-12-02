@@ -2,3 +2,21 @@
     background: rgb(2, 0, 36);
     background: radial-gradient(circle, rgba(0, 0, 0, 1) 16%, rgb(90, 87, 89) 35%, rgba(0, 0, 0, 1) 65%);
 }
+
+.terminado {
+    background: rgb(23, 101, 7);
+    background: radial-gradient(circle, rgba(23, 101, 7, 1) 14%, rgba(41, 121, 9, 1) 23%, rgba(24, 51, 9, 1) 100%);
+    color: white;
+}
+
+.letras {
+    color: white;
+    font-size: 25px;
+}
+
+.containerForm {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+}
+

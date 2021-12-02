@@ -40,11 +40,7 @@ export function TablaGestionarUsuarioPlanta() {
             <tbody>
               <tr>
                 <th>
-                  <input
-                    type="radio"
-                    name="options"
-                    id="option1"
-                  />
+                  <input type="radio" name="options" id="option1" />
                 </th>
                 <td style={{ textAlign: "center" }}>1</td>
                 <td style={{ textAlign: "center" }}>Jorge</td>
@@ -90,19 +86,6 @@ export function TablaGestionarUsuarioPlanta() {
           >
             Eliminar usuario de planta
           </button>
-          <a href="./AgregarUsuarioPlanta.html" className="link-primary">
-            <button
-              type="button"
-              className="btn btn-danger"
-              style={{
-                marginLeft: "1%",
-                marginBottom: "3%",
-                marginTop: "10%",
-              }}
-            >
-              Añadir nuevo usuario de planta
-            </button>
-          </a>
         </div>
       </form>
     </div>

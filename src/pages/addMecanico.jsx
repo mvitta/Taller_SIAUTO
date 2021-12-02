@@ -1,7 +1,9 @@
+import React from 'react';
 import { Header } from "../componentes/header";
 import { Menu } from "../componentes/menu";
 import { Formulario } from "../componentes/formRegistro";
 import { Footer } from "../componentes/footer";
+import { Titulo } from '../componentes/titulo';
 
 export function AddMecanico() {
   return (
@@ -15,6 +17,7 @@ export function AddMecanico() {
           <main
             className="col-md-9 ms-sm-auto col-lg-10 px-md-4"
           >
+            <Titulo titulo="Agregar usuario mecanico" />
             <Formulario />
           </main>
           <footer className="fondo text-center text-white">
