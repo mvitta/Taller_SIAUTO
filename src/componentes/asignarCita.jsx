@@ -1,95 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 
 export function AsignarCita() {
-  function validarDatos(e) {
-    e.preventDefault();
-    let estado = "";
+  const [nombre, setNombre] = useState({ valor: "", valido: false });
+  const [apellido, setApellido] = useState({ valor: "", valido: false });
+  const [cedula, setCedula] = useState({ valor: "", valido: false });
+  const [marca, setMarca] = useState({ valor: "", valido: false });
+  const [modelo, setModelo] = useState({ valor: "", valido: false });
+  const [año, setAño] = useState({ valor: "", valido: false });
+  const [placa, setPlaca] = useState({ valor: "", valido: false });
+  const [fecha, setFecha] = useState({ valor: "", valido: false });
 
-    function campoCorrecto(id) {
-      setTimeout(() => {
-        document.getElementById(id).className = "blanco";
-      }, 1000);
-    }
+  function campoCorrecto(id) {
+    document.getElementById(id).className = "blanco";
+  }
 
-    function campoError(id, msg) {
-      const campo = document.getElementById(id);
-      campo.className = "alert alert-danger";
-      campo.innerHTML = msg;
-    }
+  function campoError(id, msg) {
+    const campo = document.getElementById(id);
+    campo.className = "alert alert-danger";
+    campo.innerHTML = msg;
+  }
 
-    const expreNombre = /^[A-Za-z]{2,15}$/;
-    const nombre = document.getElementById("inputNombre").value;
-    if (expreNombre.test(nombre)) {
-      estado += "OK";
-      campoCorrecto("errorNombre");
+  function validar(v, id, expReg, st, fst) {
+    if (expReg.test(v)) {
+      campoCorrecto(id);
+      fst({
+        ...st,
+        valor: v,
+        valido: true,
+      });
     } else {
-      campoError("errorNombre", nombre + " no es valido");
+      campoError(id, "El campo no es valido");
+      fst({
+        ...st,
+        valor: v,
+        valido: false,
+      });
     }
-    const expreApellido = /^[A-Za-z]{2,15}$/;
-    const apellido = document.getElementById("inputApellido").value;
-    if (expreApellido.test(apellido)) {
-      estado += "OK";
-      campoCorrecto("errorApellido");
-    } else {
-      campoError("errorApellido", apellido + " apellido no es valido");
-    }
-
-    const expreCedula = /^[0-9]{8,11}$/;
-    const cedula = document.getElementById("inputCedula").value;
-    if (expreCedula.test(cedula)) {
-      estado += "OK";
-      campoCorrecto("errorCedula");
-    } else {
-      campoError("errorCedula", cedula + " no es una cedula valida");
-    }
-    const expreMarca = /^[A-Za-z]+$/;
-    const marca = document.getElementById("inputMarca").value;
-    if (expreMarca.test(marca)) {
-      estado += "OK";
-      campoCorrecto("errorMarca");
-    } else {
-      campoError("errorMarca", marca + " no es una marca valida");
-    }
-
-    const expreModelo = /^[A-Za-z]+$/;
-    const modelo = document.getElementById("inputModelo").value;
-    if (expreModelo.test(modelo)) {
-      estado += "OK";
-      campoCorrecto("errorModelo");
-    } else {
-      campoError("errorModelo", modelo + " no es un modelo valido");
-    }
-
-    const exprePlaca = /^[A-Z]{3}[0-9]{3}$/;
-    const placa = document.getElementById("inputPlaca").value;
-    if (exprePlaca.test(placa)) {
-      estado += "OK";
-      campoCorrecto("errorPlaca");
-    } else {
-      campoError("errorPlaca", placa + " no es una placa valida");
-    }
-
-    const expreAño = /^[0-9]{4}$/;
-    if (expreAño.test(document.getElementById("inputAño").value)) {
-      estado += "OK";
-      campoCorrecto("errorAño");
-    } else {
-      campoError("errorAño", "el año no es valido");
-    }
-
-    if (document.getElementById("inputFecha").value === "") {
-      campoError("errorFecha", "Debe Ingresar una fecha");
-    } else {
-      estado += "OK";
-      campoCorrecto("errorFecha");
-    }
-
-    console.log(estado);
   }
 
   return (
     <div style={{ marginTop: "3%" }}>
-      <form id="formulario" method="post" onSubmit={validarDatos}>
+      <form
+        id="formulario"
+        method="post"
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log(
+            nombre.valido,
+            apellido.valido,
+            cedula.valido,
+            marca.valido,
+            modelo.valido,
+            año.valido,
+            placa.valido,
+            fecha.valido
+          );
+        }}
+      >
         <div className="container">
           <div className="row">
             <div className="col">
@@ -106,6 +73,15 @@ export function AsignarCita() {
                                   type="text"
                                   className="form-control"
                                   id="inputNombre"
+                                  onChange={(e) => {
+                                    validar(
+                                      e.target.value,
+                                      "errorNombre",
+                                      /^[A-Za-z]{2,15}$/,
+                                      nombre,
+                                      setNombre
+                                    );
+                                  }}
                                 />
                                 <label htmlFor="inputname">
                                   <strong>Nombre</strong>
@@ -120,6 +96,15 @@ export function AsignarCita() {
                                   type="text"
                                   className="form-control"
                                   id="inputApellido"
+                                  onChange={(e) => {
+                                    validar(
+                                      e.target.value,
+                                      "errorApellido",
+                                      /^[A-Za-z]{2,15}$/,
+                                      apellido,
+                                      setApellido
+                                    );
+                                  }}
                                 />
                                 <label htmlFor="inputlastname">
                                   <strong>Apellido</strong>
@@ -134,6 +119,15 @@ export function AsignarCita() {
                                   type="text"
                                   className="form-control"
                                   id="inputCedula"
+                                  onChange={(e) => {
+                                    validar(
+                                      e.target.value,
+                                      "errorCedula",
+                                      /^[0-9]{8,11}$/,
+                                      cedula,
+                                      setCedula
+                                    );
+                                  }}
                                 />
                                 <label htmlFor="inputdocument">
                                   <strong>Cédula</strong>
@@ -148,6 +142,15 @@ export function AsignarCita() {
                                   type="text"
                                   className="form-control"
                                   id="inputMarca"
+                                  onChange={(e) => {
+                                    validar(
+                                      e.target.value,
+                                      "errorMarca",
+                                      /^[A-Za-z]+$/,
+                                      marca,
+                                      setMarca
+                                    );
+                                  }}
                                 />
                                 <label htmlFor="inputmarca">
                                   <strong>Marca</strong>
@@ -170,6 +173,15 @@ export function AsignarCita() {
                                   type="text"
                                   className="form-control"
                                   id="inputModelo"
+                                  onChange={(e) => {
+                                    validar(
+                                      e.target.value,
+                                      "errorModelo",
+                                      /^[A-Za-z]+$/,
+                                      modelo,
+                                      setModelo
+                                    );
+                                  }}
                                 />
                                 <label htmlFor="inputmodel">
                                   <strong>Modelo</strong>
@@ -184,6 +196,15 @@ export function AsignarCita() {
                                   type="number"
                                   className="form-control"
                                   id="inputAño"
+                                  onChange={(e) => {
+                                    validar(
+                                      e.target.value,
+                                      "errorAño",
+                                      /^[0-9]{4}$/,
+                                      año,
+                                      setAño
+                                    );
+                                  }}
                                 />
                                 <label htmlFor="inputyear">
                                   <strong>Año</strong>
@@ -198,6 +219,15 @@ export function AsignarCita() {
                                   type="text"
                                   className="form-control"
                                   id="inputPlaca"
+                                  onChange={(e) => {
+                                    validar(
+                                      e.target.value,
+                                      "errorPlaca",
+                                      /^[A-Z]{3}[0-9]{3}$/,
+                                      placa,
+                                      setPlaca
+                                    );
+                                  }}
                                 />
                                 <label htmlFor="inputmodel">
                                   <strong>Placa</strong>
@@ -212,6 +242,28 @@ export function AsignarCita() {
                                   type="date"
                                   className="form-control"
                                   id="inputFecha"
+                                  onChange={(e) => {
+                                    const v = e.target.value;
+                                    console.log(v);
+                                    if (v === "") {
+                                      campoError(
+                                        "errorFecha",
+                                        "Seleccione una fecha"
+                                      );
+                                      setFecha({
+                                        ...fecha,
+                                        valor: v,
+                                        valido: false,
+                                      });
+                                    } else {
+                                      campoCorrecto("errorFecha");
+                                      setFecha({
+                                        ...fecha,
+                                        valor: v,
+                                        valido: true,
+                                      });
+                                    }
+                                  }}
                                 />
                                 <label
                                   htmlFor="inputdate"
