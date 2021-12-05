@@ -1,148 +1,121 @@
-import React from "react";
+import React, { useState } from "react";
 
 export function Formulario() {
-  function prevenirEnvioFormulario(e) {
-    e.preventDefault();
+  const [nombre, setNombre] = useState({ valor: "", valido: false });
+  const [apellido, setApellido] = useState({ valor: "", valido: false });
+  const [cedula, setCedula] = useState({ valor: "", valido: false });
+  const [correo, setCorreo] = useState({ valor: "", valido: false });
+  const [direccion, setDireccion] = useState({ valor: "", valido: false });
+  const [telefono, setTelefono] = useState({ valor: "", valido: false });
+  const [contra1, setContra1] = useState({ valor: "", valido: false });
+  const [contra2, setContra2] = useState({ valor: "", valido: false });
+  const [sexo, setSexo] = useState({ valor: "", valido: false });
 
-    const msgNombre = document.getElementById("msgNombre");
-    const msgApellido = document.getElementById("msgApellido");
-    const msgCedula = document.getElementById("msgCedula");
-    const msgCorreo = document.getElementById("msgCorreo");
-    const msgTelefono = document.getElementById("msgTelefono");
-    const msgContra1 = document.getElementById("msgContra1");
-    const msgContra2 = document.getElementById("msgContra2");
-    const msgDireccion = document.getElementById("msgDireccion");
-    const msgSexo = document.getElementById("msgSexo");
-
-    const id = [
-      "inputNombre",
-      "inputApellido",
-      "inputCedula",
-      "inputCorreo",
-      "inputDireccion",
-      "numeroTelefono",
-      "inputPassword1",
-      "inputPassword2",
-      "inputState",
-    ];
-    let datos = [];
-    id.map((elemento) => datos.push(document.getElementById(elemento).value));
-
-    let estado = "";
-
-    if (datos[0].match(/^[A-Za-z]{2,15}$/)) {
-      estado += "OK";
-      msgNombre.innerHTML = "Correcto";
-      msgNombre.className = "alert alert-success";
-    } else {
-      msgNombre.className = "alert alert-danger";
-      msgNombre.innerHTML = "Nombre no es valido";
-    }
-
-    if (datos[1].match(/^[A-Za-z]{2,15}$/)) {
-      estado += "OK";
-      msgApellido.innerHTML = "Correcto";
-      msgApellido.className = "alert alert-success";
-    } else {
-      msgApellido.className = "alert alert-danger";
-      msgApellido.innerHTML = "Apellido no es valido";
-    }
-
-    if (datos[2].match(/^[0-9]{8,12}$/)) {
-      estado += "OK";
-      msgCedula.innerHTML = "Correcto";
-      msgCedula.className = "alert alert-success";
-    } else {
-      msgCedula.className = "alert alert-danger";
-      msgCedula.innerHTML = "Cedula no es valida";
-    }
-
-    if (datos[3].match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
-      estado += "OK";
-      msgCorreo.innerHTML = "Correcto";
-      msgCorreo.className = "alert alert-success";
-    } else {
-      msgCorreo.className = "alert alert-danger";
-      msgCorreo.innerHTML = "Correo no es valido";
-    }
-
-    if (datos[4].match(/^[#.0-9a-zA-Z\s,-]+$/)) {
-      estado += "OK";
-      msgDireccion.innerHTML = "Correcto";
-      msgDireccion.className = "alert alert-success";
-    } else {
-      msgDireccion.className = "alert alert-danger";
-      msgDireccion.innerHTML = "Direccion no Valida";
-    }
-
-    if (datos[5].match(/^[0-9]+$/)) {
-      estado += "OK";
-      msgTelefono.innerHTML = "Correcto";
-      msgTelefono.className = "alert alert-success";
-    } else {
-      msgTelefono.className = "alert alert-danger";
-      msgTelefono.innerHTML = "Telefono no es valido";
-    }
-
-    if (datos[6].match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^\W_]{8,}$/)) {
-      estado += "OK";
-      msgContra1.innerHTML = "Correcto";
-      msgContra1.className = "alert alert-success";
-    } else {
-      msgContra1.className = "alert alert-danger";
-      msgContra1.innerHTML = "Contraseña no es valido";
-    }
-    // valida si las contraseña son distintas, si el campo esta vacio y si son iguales
-    if (datos[6] === datos[7] && datos[6] !== "" && datos[7] !== "") {
-      estado += "OK";
-      msgContra2.innerHTML = "";
-      msgContra2.className = msgContra2.style.backgroundColor = "white";
-    } else if (datos[6] === "" && datos[7] === "") {
-      msgContra2.className = "alert alert-info";
-      msgContra2.innerHTML = "Se requiere la contraseña";
-    } else if (datos[6] !== datos[7]) {
-      msgContra2.className = "alert alert-danger";
-      msgContra2.innerHTML = "Las contraseñas no coinciden";
-    }
-
-    if (datos[8] === "") {
-      msgSexo.className = "alert alert-danger";
-      msgSexo.innerHTML = "Debe seleccionar un sexo";
-    } else {
-      estado += "OK";
-      msgSexo.innerHTML = "";
-      msgSexo.className = msgSexo.style.backgroundColor = "white";
-    }
-
-    console.log(estado);
+  function campoCorrecto(id) {
+    document.getElementById(id).className = "blanco";
   }
 
+  function campoError(id, msg) {
+    const campo = document.getElementById(id);
+    campo.className = "alert alert-danger";
+    campo.innerHTML = msg;
+  }
+
+  function validar(v, id, expReg, st, fst) {
+    if (expReg.test(v)) {
+      campoCorrecto(id);
+      fst({
+        ...st,
+        valor: v,
+        valido: true,
+      });
+    } else {
+      campoError(id, "El campo no es valido");
+      fst({
+        ...st,
+        valor: v,
+        valido: false,
+      });
+    }
+  }
   return (
     <div className="containerForm">
       <form
         className="row g-3"
         id="formulario"
-        onSubmit={prevenirEnvioFormulario}
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log(
+            nombre.valido,
+            apellido.valido,
+            cedula.valido,
+            correo.valido,
+            direccion.valido,
+            telefono.valido,
+            contra1.valido,
+            contra2.valido,
+            sexo.valido
+          );
+        }}
       >
         <div className="col-md-6">
           <label htmlFor="inputNombre" className="form-label">
             <strong>Nombre</strong>
           </label>
-          <input type="text" className="form-control" id="inputNombre" />
+          <input
+            type="text"
+            className="form-control"
+            id="inputNombre"
+            onChange={(e) => {
+              validar(
+                e.target.value,
+                "msgNombre",
+                /^[A-Za-z]{2,15}$/,
+                nombre,
+                setNombre
+              );
+            }}
+          />
           <div id="msgNombre" style={{ marginTop: "2%" }}></div>
         </div>
         <div className="col-md-6">
           <label htmlFor="inputApellido" className="form-label">
             <strong>Apellido</strong>
           </label>
-          <input type="text" className="form-control" id="inputApellido" />
+          <input
+            type="text"
+            className="form-control"
+            id="inputApellido"
+            onChange={(e) => {
+              validar(
+                e.target.value,
+                "msgApellido",
+                /^[A-Za-z]{2,15}$/,
+                apellido,
+                setApellido
+              );
+            }}
+          />
           <div id="msgApellido" style={{ marginTop: "2%" }}></div>
         </div>
         <div className="col-12">
           <label htmlFor="inputCedula" className="form-label">
             <strong>Cedula</strong>
           </label>
-          <input type="text" className="form-control" id="inputCedula" />
+          <input
+            type="text"
+            className="form-control"
+            id="inputCedula"
+            onChange={(e) => {
+              validar(
+                e.target.value,
+                "msgCedula",
+                /^[0-9]{8,12}$/,
+                cedula,
+                setCedula
+              );
+            }}
+          />
           <div id="msgCedula" style={{ marginTop: "2%" }}></div>
         </div>
         <div className="col-12">
@@ -154,6 +127,15 @@ export function Formulario() {
             className="form-control"
             id="inputCorreo"
             placeholder="name@ejemplo.com"
+            onChange={(e) => {
+              validar(
+                e.target.value,
+                "msgCorreo",
+                /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+                correo,
+                setCorreo
+              );
+            }}
           />
           <div id="msgCorreo" style={{ marginTop: "2%" }}></div>
         </div>
@@ -166,6 +148,15 @@ export function Formulario() {
             className="form-control"
             id="inputDireccion"
             placeholder="Cra 42G2 # 97 - 26"
+            onChange={(e) => {
+              validar(
+                e.target.value,
+                "msgDireccion",
+                /^[#.0-9a-zA-Z\s,-]+$/,
+                direccion,
+                setDireccion
+              );
+            }}
           />
           <div id="msgDireccion" style={{ marginTop: "2%" }}></div>
         </div>
@@ -173,28 +164,80 @@ export function Formulario() {
           <label htmlFor="numeroTelefono" className="form-label">
             <strong>Numero de telefono</strong>
           </label>
-          <input type="number" className="form-control" id="numeroTelefono" />
+          <input
+            type="number"
+            className="form-control"
+            id="numeroTelefono"
+            onChange={(e) => {
+              validar(
+                e.target.value,
+                "msgTelefono",
+                /^[0-9]{10,17}$/,
+                telefono,
+                setTelefono
+              );
+            }}
+          />
           <div id="msgTelefono" style={{ marginTop: "2%" }}></div>
         </div>
         <div className="col-md-6">
           <label htmlFor="inputPassword1" className="form-label">
             <strong>Contraseña</strong>
           </label>
-          <input type="password" className="form-control" id="inputPassword1" />
+          <input
+            type="password"
+            className="form-control"
+            id="inputPassword1"
+            onChange={(e) => {
+              validar(
+                e.target.value,
+                "msgContra1",
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^\W_]{8,}$/,
+                contra1,
+                setContra1
+              );
+            }}
+          />
           <div id="msgContra1" style={{ marginTop: "2%" }}></div>
         </div>
         <div className="col-md-6">
           <label htmlFor="inputPassword2  " className="form-label">
             <strong>Repita Contraseña</strong>
           </label>
-          <input type="password" className="form-control" id="inputPassword2" />
+          <input
+            type="password"
+            className="form-control"
+            id="inputPassword2"
+            onChange={(e) => {
+              validar(
+                e.target.value,
+                "msgContra2",
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^\W_]{8,}$/,
+                contra2,
+                setContra2
+              );
+            }}
+          />
           <div id="msgContra2" style={{ marginTop: "2%" }}></div>
         </div>
         <div className="col-md-4">
           <label htmlFor="inputState" className="form-label">
             <strong>Sexo</strong>
           </label>
-          <select id="inputState" className="form-select">
+          <select
+            id="inputState"
+            className="form-select"
+            onChange={(e) => {
+              const v = e.target.value;
+              if (v === "") {
+                campoError("msgSexo", "Seleciona una fecha");
+                setSexo({ ...sexo, valor: v, valido: false });
+              } else {
+                campoCorrecto("msgSexo");
+                setSexo({ ...sexo, valor: v, valido: true });
+              }
+            }}
+          >
             <option key={21} value=""></option>
             <option key={22} value="Femenino">
               Femenino
