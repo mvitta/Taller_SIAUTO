@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // V6 -> nuevos cambios
 
-let inicioSesion = "";
-export { inicioSesion };
+// para prueba o simulacion se usa variable global, cuando se actualiza la pagina los componentes que tienen condicion desaparecen
+let estado = { perfil: undefined, abierto: false };
+export { estado };
 
 export function Login() {
-  inicioSesion = "";
+  // Simulacion
   const [datos, setdatos] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch("./api.json", {})
       .then((res) => res.json())
@@ -16,23 +18,22 @@ export function Login() {
       });
   }, []);
 
+  // se busca que el perfil exista en el archivo json
   function validarSesion() {
     const usuario = document.getElementById("exampleInputEmail1").value;
 
     for (let i = 0; i < datos.length; i++) {
       const registro = datos[i];
       if (registro.rol === usuario) {
-        console.log(registro.rol);
-        inicioSesion = registro.rol;
-        irPagina();
+        estado = { perfil: registro.rol, abierto: true };
+        navigate("/Inicio");
         break;
       }
     }
+    console.log(estado.perfil, estado.abierto);
   }
 
-  function irPagina() {
-    navigate("/Inicio");
-  }
+  console.log(estado.perfil, estado.abierto);
 
   return (
     <div>

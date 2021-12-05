@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { inicioSesion } from "../componentes/formLogin";
+import { estado } from "../componentes/formLogin";
 
 export function Menu() {
-  console.log(inicioSesion);
-  const [sesion] = useState(inicioSesion);
-  
+  const [sesion] = useState(estado.perfil);
+  console.log(estado.perfil);
+
   const opcionesMenu = [
     {
       id: 1,
@@ -58,7 +58,7 @@ export function Menu() {
 
     {
       id: 8,
-      valor: "Programa citas",
+      valor: "Programar cita",
       permisos: ["planta", "admin"],
       ruta: "/ProgramaCitas",
     },

@@ -11,41 +11,49 @@ import pastillas from "../Imagenes/Imagenes servicio en proceso/pastillas.jpg";
 export function ServiciosEnProceso() {
   const todosServicios = [
     {
+      id: 31,
       titulo: "Frenos",
       imagen: revision_f,
     },
     {
+      id: 32,
       titulo: "Pastillas",
       imagen: pastillas,
     },
     {
+      id: 33,
       titulo: "Discos",
       imagen: discos,
     },
     {
+      id: 34,
       titulo: "Suspension",
       imagen: suspension,
     },
     {
+      id: 35,
       titulo: "Amortiguadores",
       imagen: amortiguadores,
     },
     {
+      id: 36,
       titulo: "C. Aceite",
       imagen: c_aceite,
     },
     {
+      id: 37,
       titulo: "Alineacion",
       imagen: alineacion,
     },
     {
+      id: 38,
       titulo: "Rotacion",
       imagen: rotacion,
     },
   ];
   return (
     <div className="container" style={{ padding: "5%" }}>
-      <form action="/base_html/serviciosEnProceso.html" method="post">
+      <form method="post">
         <div className="row row-cols-3">
           {todosServicios.map((serv) => (
             <div className="col" style={{ textAlign: "center" }}>

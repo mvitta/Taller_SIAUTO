@@ -13,8 +13,11 @@ export function ServAsignados() {
       <div className="container-fluid">
         <div className="row">
           <Menu />
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <Titulo titulo="Servicios Asignados"/>
+          <main
+            className="col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-auto"
+            style={{ height: "100%" }}
+          >
+            <Titulo titulo="Servicios Asignados" />
             <ServiciosAsignados />
           </main>
           <footer className="fondo text-center text-white">

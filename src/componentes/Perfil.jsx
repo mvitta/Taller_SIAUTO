@@ -40,8 +40,12 @@ export function Perfil(props) {
             </div>
             <div style={{ textAlign: "center" }}>
               <ul className="list-group list-group-flush">
-                <li className="list-group-item">Primer elemento</li>
-                <li className="list-group-item">Segundo elemento</li>
+                <li key={100} className="list-group-item">
+                  Primer elemento
+                </li>
+                <li key={200} className="list-group-item">
+                  Segundo elemento
+                </li>
               </ul>
             </div>
           </div>

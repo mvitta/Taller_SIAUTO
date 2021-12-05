@@ -51,6 +51,201 @@ export function TablaGestionarUsuarioPlanta() {
                 <td style={{ textAlign: "center" }}>3001234567</td>
                 <td style={{ textAlign: "center" }}>Masculino</td>
               </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
+              <tr>
+                <th>
+                  <input type="radio" name="options" id="option1" />
+                </th>
+                <td style={{ textAlign: "center" }}>1</td>
+                <td style={{ textAlign: "center" }}>Jorge</td>
+                <td style={{ textAlign: "center" }}>Martinez</td>
+                <td style={{ textAlign: "center" }}>123456</td>
+                <td style={{ textAlign: "center" }}>correo@correo.com</td>
+                <td style={{ textAlign: "center" }}>calle 1# 1-1</td>
+                <td style={{ textAlign: "center" }}>3001234567</td>
+                <td style={{ textAlign: "center" }}>Masculino</td>
+              </tr>
             </tbody>
           </table>
           <button
