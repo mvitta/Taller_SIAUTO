@@ -9,27 +9,27 @@ import Twitter from "../Imagenes/Iconos redes sociales/twitter.png";
 export function Footer() {
   const redes = [
     {
-      id: 1,
+      id: 1212,
       icono: Facebook,
     },
     {
-      id: 2,
+      id: 2214,
       icono: Github,
     },
     {
-      id: 3,
+      id: 3215,
       icono: Google,
     },
     {
-      id: 4,
+      id: 2146,
       icono: Instagram,
     },
     {
-      id: 5,
+      id: 5217,
       icono: Linkedin,
     },
     {
-      id: 6,
+      id: 6218,
       icono: Twitter,
     },
   ];

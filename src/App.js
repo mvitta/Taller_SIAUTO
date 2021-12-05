@@ -15,31 +15,26 @@ import { PerfilUsuario } from "./pages/PerfilUsuario";
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<IniciarSesion />} />
-          <Route path="/Inicio" element={<SeccionInicio />} />
-          <Route path="/Perfil" element={<PerfilUsuario />} />
-          <Route
-            path="/GestionarUsuariosDePlanta"
-            element={<GestionarUsuariosPlanta />}
-          />
-          <Route
-            path="/registrarUsuarioPlanta"
-            element={<AddUsuarioPlanta />}
-          />
-          <Route path="/GestionarMecanicos" element={<TGestionMecanico />} />
-          <Route path="/registrarMecanico" element={<AddMecanico />} />
-          <Route path="/ConfigurarServicios" element={<ConfigServicio />} />
-          <Route path="/VerAgendaCitas" element={<VerCitas />} />
-          <Route path="/ProgramaCitas" element={<ProgramarCitas />} />
-          <Route path="/ServiciosAsignados" element={<ServAsignados />} />
-          <Route path="/ServiciosEnProcesos" element={<ServProceso />} />
-          <Route path="/ServiciosTerminados" element={<ServTerminados />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<IniciarSesion />} />
+        <Route path="/Inicio" element={<SeccionInicio />} />
+        <Route path="/Perfil" element={<PerfilUsuario />} />
+        <Route
+          path="/GestionarUsuariosDePlanta"
+          element={<GestionarUsuariosPlanta />}
+        />
+        <Route path="/registrarUsuarioPlanta" element={<AddUsuarioPlanta />} />
+        <Route path="/GestionarMecanicos" element={<TGestionMecanico />} />
+        <Route path="/registrarMecanico" element={<AddMecanico />} />
+        <Route path="/ConfigurarServicios" element={<ConfigServicio />} />
+        <Route path="/VerAgendaCitas" element={<VerCitas />} />
+        <Route path="/ProgramaCitas" element={<ProgramarCitas />} />
+        <Route path="/ServiciosAsignados" element={<ServAsignados />} />
+        <Route path="/ServiciosEnProcesos" element={<ServProceso />} />
+        <Route path="/ServiciosTerminados" element={<ServTerminados />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

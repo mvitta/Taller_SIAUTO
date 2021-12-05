@@ -13,7 +13,10 @@ export function SeccionInicio() {
       <div className="container-fluid">
         <div className="row">
           <Menu />
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <main
+            className="col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-auto"
+            style={{ height: "100%" }}
+          >
             <Titulo titulo="Bienvenido a SIAUTO" />
             <Inicio />
           </main>

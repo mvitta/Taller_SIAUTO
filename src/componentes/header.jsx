@@ -1,7 +1,7 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/style.css";
 import { Link } from "react-router-dom";
+import { estado } from "../componentes/formLogin";
 
 export function Header() {
   return (
@@ -24,27 +24,29 @@ export function Header() {
                 mb-md-0
               "
         >
-          <li key={10}>
-            <Link className="nav-link px-2 text-white" to="/Inicio">
-              Inicio
-            </Link>
-          </li>
-          <li key={20}>
+          {estado.abierto && (
+            <li key={11}>
+              <Link className="nav-link px-2 text-white" to="/Inicio">
+                Inicio
+              </Link>
+            </li>
+          )}
+          <li key={12}>
             <a href="#!" className="nav-link px-2 text-white">
               Features
             </a>
           </li>
-          <li key={30}>
+          <li key={13}>
             <a href="#!" className="nav-link px-2 text-white">
               Pricing
             </a>
           </li>
-          <li key={40}>
+          <li key={14}>
             <a href="#!" className="nav-link px-2 text-white">
               FAQs
             </a>
           </li>
-          <li key={50}>
+          <li key={15}>
             <a href="#!" className="nav-link px-2 text-white">
               About
             </a>
@@ -60,14 +62,17 @@ export function Header() {
           />
         </form>
 
-        <div className="text-end">
-          <button type="button" className="btn btn-outline-light me-2">
-            Iniciar Sesion
-          </button>
-          <button type="button" className="btn btn-warning">
-            Cerrar Sesion
-          </button>
-        </div>
+        {estado.abierto && (
+          <div className="text-end">
+            <button type="button" className="btn btn-outline-light me-2">
+              Iniciar Sesion
+            </button>
+            <button type="button" className="btn btn-warning">
+              Cerrar Sesion
+            </button>
+          </div>
+        )
+        }
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import { Header } from "../componentes/header";
 import { Menu } from "../componentes/menu";
 import { Formulario } from "../componentes/formRegistro";
 import { Footer } from "../componentes/footer";
-import { Titulo } from '../componentes/titulo';
+import { Titulo } from "../componentes/titulo";
 
 export function AddUsuarioPlanta() {
   return (
@@ -15,9 +15,10 @@ export function AddUsuarioPlanta() {
         <div className="row">
           <Menu />
           <main
-            className="col-md-9 ms-sm-auto col-lg-10 px-md-4"
+            className="col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-auto"
+            style={{ height: "100%" }}
           >
-            <Titulo titulo="Agregar Usuario de Planta" />
+            <Titulo titulo="Agregar Usuario De Planta" />
             <Formulario />
           </main>
           <footer className="fondo text-center text-white">
