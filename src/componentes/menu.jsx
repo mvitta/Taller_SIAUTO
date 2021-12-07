@@ -1,89 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { estado } from "../componentes/formLogin";
+import { getDatosPermisos } from "../api/api";
 
 export function Menu() {
   const [sesion] = useState(estado.perfil);
+  const [opcionesMenu, setOpcionesMenu] = useState([]);
   console.log(estado.perfil);
 
-  const opcionesMenu = [
-    {
-      id: 1,
-      valor: "Perfil",
-      permisos: ["mecanico", "planta", "admin"],
-      ruta: "/Perfil",
-    },
+  useEffect(() => {
+    const fetch = async () => {
+      const opmenu = await getDatosPermisos();
+      setOpcionesMenu(opmenu);
+    };
 
-    {
-      id: 2,
-      valor: "Gestionar usuarios de planta",
-      permisos: ["admin"],
-      ruta: "/GestionarUsuariosDePlanta",
-    },
-
-    {
-      id: 3,
-      valor: "Registrar usuario de planta",
-      permisos: ["admin"],
-      ruta: "/registrarUsuarioPlanta",
-    },
-
-    {
-      id: 4,
-      valor: "Gestionar mecanicos",
-      permisos: ["planta", "admin"],
-      ruta: "/GestionarMecanicos",
-    },
-
-    {
-      id: 5,
-      valor: "Registrar mecanico",
-      permisos: ["admin"],
-      ruta: "/registrarMecanico",
-    },
-
-    {
-      id: 6,
-      valor: "Configurar servicios",
-      permisos: ["planta", "admin"],
-      ruta: "/ConfigurarServicios",
-    },
-
-    {
-      id: 7,
-      valor: "Ver agenda de citas",
-      permisos: ["planta", "admin"],
-      ruta: "/VerAgendaCitas",
-    },
-
-    {
-      id: 8,
-      valor: "Programar cita",
-      permisos: ["planta", "admin"],
-      ruta: "/ProgramaCitas",
-    },
-
-    {
-      id: 9,
-      valor: "Servicios asignados",
-      permisos: ["mecanico", "planta", "admin"],
-      ruta: "/ServiciosAsignados",
-    },
-
-    {
-      id: 10,
-      valor: "Servicios en proceso",
-      permisos: ["mecanico", "planta", "admin"],
-      ruta: "/ServiciosEnProcesos",
-    },
-
-    {
-      id: 11,
-      valor: "Servicios terminados",
-      permisos: ["mecanico", "planta", "admin"],
-      ruta: "/ServiciosTerminados",
-    },
-  ];
+    fetch();
+    
+  }, [opcionesMenu]);
 
   return (
     <nav

@@ -1,56 +1,24 @@
-import React from "react";
-import alineacion from "../Imagenes/Imagenes servicio en proceso/alineacion.jpg";
-import amortiguadores from "../Imagenes/Imagenes servicio en proceso/amortiguadores.jpg";
-import discos from "../Imagenes/Imagenes servicio en proceso/discos.jpg";
-import suspension from "../Imagenes/Imagenes servicio en proceso/suspension.jpg";
-import rotacion from "../Imagenes/Imagenes servicio en proceso/rotacion.jpg";
-import c_aceite from "../Imagenes/Imagenes servicio en proceso/cambioAceite.jpg";
-import revision_f from "../Imagenes/Imagenes servicio en proceso/revisionFrenos.jpg";
-import pastillas from "../Imagenes/Imagenes servicio en proceso/pastillas.jpg";
+import React, { useEffect, useState } from "react";
+import { getDatosTiposServicios } from "../api/api";
 
 export function ServiciosEnProceso() {
-  const todosServicios = [
-    {
-      id: 31,
-      titulo: "Frenos",
-      imagen: revision_f,
-    },
-    {
-      id: 32,
-      titulo: "Pastillas",
-      imagen: pastillas,
-    },
-    {
-      id: 33,
-      titulo: "Discos",
-      imagen: discos,
-    },
-    {
-      id: 34,
-      titulo: "Suspension",
-      imagen: suspension,
-    },
-    {
-      id: 35,
-      titulo: "Amortiguadores",
-      imagen: amortiguadores,
-    },
-    {
-      id: 36,
-      titulo: "C. Aceite",
-      imagen: c_aceite,
-    },
-    {
-      id: 37,
-      titulo: "Alineacion",
-      imagen: alineacion,
-    },
-    {
-      id: 38,
-      titulo: "Rotacion",
-      imagen: rotacion,
-    },
-  ];
+  const [todosServicios, setTodosServicios] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const todoser = await getDatosTiposServicios();
+      setTodosServicios(todoser);
+    };
+
+    fetch();
+    
+  }, [todosServicios]);
+
+  const getImage = (imageName) => {
+    const imagen = imageName;
+    return require("../Imagenes/Imagenes servicio en proceso/"+imagen).default
+  };
+
   return (
     <div className="container" style={{ padding: "5%" }}>
       <form method="post">
@@ -62,7 +30,7 @@ export function ServiciosEnProceso() {
                   {serv.titulo}
                 </h1>
               </div>
-              <img width="100%" src={serv.imagen} alt="" />
+              <img width="100%" src={getImage(serv.imagen)} alt="" />
 
               <div style={{ margin: "5%" }}>
                 <button type="button" className="btn btn-outline-success" id="">

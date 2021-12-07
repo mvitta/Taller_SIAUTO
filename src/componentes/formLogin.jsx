@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // V6 -> nuevos cambios
+import { getDatosRolesUsuarios } from "../api/api";
+import { getDatosUsuarios } from "../api/api";
 
 // para prueba o simulacion se usa variable global, cuando se actualiza la pagina los componentes que tienen condicion desaparecen
 let estado = { perfil: undefined, abierto: false };
@@ -7,33 +9,37 @@ export { estado };
 
 export function Login() {
   // Simulacion
-  const [datos, setdatos] = useState([]);
+  const [rolesusuarios, setRolesUsuarios] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("./api.json", {})
-      .then((res) => res.json())
-      .then((info) => {
-        setdatos(info);
-      });
-  }, []);
+    const fetch = async () => {
+      const rus = await getDatosRolesUsuarios();
+      const us = await getDatosUsuarios();
+      setRolesUsuarios(rus);
+      setUsuarios(us);
+    };
+
+    fetch();
+    
+  }, [rolesusuarios,usuarios]);
 
   // se busca que el perfil exista en el archivo json
   function validarSesion() {
-    const usuario = document.getElementById("exampleInputEmail1").value;
+    const correo = document.getElementById("exampleInputEmail1").value;
+    const rolusua = document.getElementById("selectRol").value;
 
-    for (let i = 0; i < datos.length; i++) {
-      const registro = datos[i];
-      if (registro.rol === usuario) {
-        estado = { perfil: registro.rol, abierto: true };
-        navigate("/Inicio");
-        break;
-      }
+    const result = usuarios.find(item => item.correo.includes(correo));
+
+    if(result.rol !== null && result.rol === rolusua && result.correo === correo){
+      estado = { perfil: result.rol, abierto: true };
+      navigate("/Inicio");
     }
+    
     console.log(estado.perfil, estado.abierto);
-  }
 
-  console.log(estado.perfil, estado.abierto);
+  }
 
   return (
     <div>
@@ -52,6 +58,17 @@ export function Login() {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="exampleInputEmail1" className="form-label">
+                Rol de Usuario
+              </label>
+              <select className="form-select" aria-label="Default select example" id="selectRol" name="selectRol">
+                <option value={null}>Seleccione Rol de Usuario</option>
+                {rolesusuarios.map(ruser => (
+                  <option key={ruser.id} value={ruser.id}>{ruser.rol}</option>
+                ))}
+                </select>
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
