@@ -43,19 +43,34 @@ export function Formulario() {
       <form
         className="row g-3"
         id="formulario"
+        encType=""
         onSubmit={(e) => {
+          // se envian los datos al servidor
           e.preventDefault();
-          console.log(
-            nombre.valido,
-            apellido.valido,
-            cedula.valido,
-            correo.valido,
-            direccion.valido,
-            telefono.valido,
-            contra1.valido,
-            contra2.valido,
-            sexo.valido
-          );
+          const datos = [
+            { nombre: nombre.valor },
+            { apellido: apellido.valor },
+            { cedula: cedula.valor },
+            { correo: correo.valor },
+            { direccion: direccion.valor },
+            { telefono: telefono.valor },
+            { contra1: contra1.valor },
+            { contra2: contra2.valor },
+            { sexo: sexo.valor },
+          ];
+
+          var url = "http://localhost:4000/siAuto/salida";
+          console.log(datos);
+          fetch(url, {
+            method: "POST",
+            body: JSON.stringify(datos),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((res) => res.text())
+            .catch((error) => console.error("Error:", error))
+            .then((response) => console.log("Peticion exitosa:", response));
         }}
       >
         <div className="col-md-6">
