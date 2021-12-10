@@ -1,0 +1,78 @@
+[
+    {
+      "id": "1",
+      "valor": "Perfil",
+      "permisos": ["3", "2", "1"],
+      "ruta": "/Perfil"
+    },
+
+    {
+      "id": "2",
+      "valor": "Gestionar usuarios de planta",
+      "permisos": ["1"],
+      "ruta": "/GestionarUsuariosDePlanta"
+    },
+
+    {
+      "id": "3",
+      "valor": "Registrar usuario de planta",
+      "permisos": ["1"],
+      "ruta": "/registrarUsuarioPlanta"
+    },
+
+    {
+      "id": "4",
+      "valor": "Gestionar mecanicos",
+      "permisos": ["2", "1"],
+      "ruta": "/GestionarMecanicos"
+    },
+
+    {
+      "id": "5",
+      "valor": "Registrar mecanico",
+      "permisos": ["1"],
+      "ruta": "/registrarMecanico"
+    },
+
+    {
+      "id": "6",
+      "valor": "Configurar servicios",
+      "permisos": ["2", "1"],
+      "ruta": "/ConfigurarServicios"
+    },
+
+    {
+      "id": "7",
+      "valor": "Ver agenda de citas",
+      "permisos": ["2", "1"],
+      "ruta": "/VerAgendaCitas"
+    },
+
+    {
+      "id": "8",
+      "valor": "Programar cita",
+      "permisos": ["2", "1"],
+      "ruta": "/ProgramaCitas"
+    },
+
+    {
+      "id": "9",
+      "valor": "Servicios asignados",
+      "permisos": ["3", "2", "1"],
+      "ruta": "/ServiciosAsignados"
+    },
+
+    {
+      "id": "10",
+      "valor": "Servicios en proceso",
+      "permisos": ["3", "2", "1"],
+      "ruta": "/ServiciosEnProcesos"
+    },
+
+    {
+      "id": "11",
+      "valor": "Servicios terminados",
+      "permisos": ["3", "2", "1"],
+      "ruta": "/ServiciosTerminados"
+    }
+  ]
