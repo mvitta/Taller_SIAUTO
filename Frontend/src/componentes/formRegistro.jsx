@@ -68,7 +68,7 @@ export function Formulario() {
               "Content-Type": "application/json",
             },
           })
-            .then((res) => res.text())
+            .then((res) => res.json())
             .catch((error) => console.error("Error:", error))
             .then((response) => console.log("Peticion exitosa:", response));
         }}
