@@ -6,7 +6,7 @@ import { getDatosPermisos } from "../api/api";
 export function Menu() {
   const [sesion] = useState(estado.perfil);
   const [opcionesMenu, setOpcionesMenu] = useState([]);
-  console.log(estado.perfil);
+ 
 
   useEffect(() => {
     const fetch = async () => {
