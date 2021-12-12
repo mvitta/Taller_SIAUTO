@@ -47,20 +47,19 @@ export function Formulario() {
         onSubmit={(e) => {
           // se envian los datos al servidor
           e.preventDefault();
-          const datos = [
-            { nombre: nombre.valor },
-            { apellido: apellido.valor },
-            { cedula: cedula.valor },
-            { correo: correo.valor },
-            { direccion: direccion.valor },
-            { telefono: telefono.valor },
-            { contra1: contra1.valor },
-            { contra2: contra2.valor },
-            { sexo: sexo.valor },
-          ];
+          const datos = {
+            nombre: nombre.valor,
+            apellido: apellido.valor,
+            cedula: cedula.valor,
+            correo: correo.valor,
+            direccion: direccion.valor,
+            telefono: telefono.valor,
+            contra1: contra1.valor,
+            contra2: contra2.valor,
+            sexo: sexo.valor,
+          };
 
-          var url = "http://localhost:4000/siAuto/salida";
-          console.log(datos);
+          var url = "http://localhost:4000/siAuto/registrarUsuarioPlanta";
           fetch(url, {
             method: "POST",
             body: JSON.stringify(datos),
