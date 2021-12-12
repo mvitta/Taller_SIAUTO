@@ -16,20 +16,13 @@ export function TablaGestionMecanico() {
       .catch((error) => console.error(error));
   }, []);
 
-  try {
-    console.log(data);
-    Object.keys(data).map((e) => console.log(data[e].correo));
-  } catch (error) {
-    console.log(error);
-  }
-
   return (
     <div style={{ marginTop: "5%" }}>
       <form action="" method="post">
         <div className="table-responsive">
           <table className="table">
             <thead className="fondo text-white">
-              <tr>
+              <tr key={500}>
                 <th scope="col" style={{ textAlign: "center" }}>
                   Seleccionar
                 </th>
@@ -63,7 +56,7 @@ export function TablaGestionMecanico() {
             <tbody>
               {Object.keys(data).map((e) => {
                 return (
-                  <tr>
+                  <tr key={400 + e}>
                     <th>
                       <input type="radio" name="options" id="option1" />
                     </th>
