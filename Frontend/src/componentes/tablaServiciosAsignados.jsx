@@ -35,6 +35,7 @@ export function ServiciosAsignados() {
                 <th scope="col">Año</th>
                 <th scope="col">Servicios</th>
                 <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
                 <th scope="col">Estado</th>
               </tr>
             </thead>
@@ -59,6 +60,7 @@ export function ServiciosAsignados() {
                   </select>
                 </td>
                 <td>23/11/2021</td>
+                <td>01:00.000 P.M</td>
                 <td style={{ color: "white", backgroundColor: "red" }}>
                   Sin iniciar
                 </td>
@@ -83,6 +85,7 @@ export function ServiciosAsignados() {
                   </select>
                 </td>
                 <td>23/11/2021</td>
+                <td>02:00.000 P.M</td>
                 <td style={{ color: "white", backgroundColor: "red" }}>
                   Sin iniciar
                 </td>
@@ -107,6 +110,7 @@ export function ServiciosAsignados() {
                   </select>
                 </td>
                 <td>23/11/2021</td>
+                <td>03:00.000 P.M</td>
                 <td style={{ color: "white", backgroundColor: "red" }}>
                   Sin iniciar
                 </td>

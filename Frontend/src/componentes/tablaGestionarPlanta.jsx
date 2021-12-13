@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 export function TablaGestionarUsuarioPlanta() {
   const [data, setData] = useState({});
   const [id, setId] = useState(0);
+  const [btnEditar, setBtnEditar] = useState(false);
 
   useEffect(() => {
     var url = "http://localhost:4000/siAuto/usuariosPlanta";
@@ -14,7 +15,7 @@ export function TablaGestionarUsuarioPlanta() {
 
   return (
     <div style={{ marginTop: "5%" }}>
-      <form action="" method="post">
+      <form action="" method="">
         <div className="table-responsive">
           <table className="table">
             <thead className="fondo text-white">
@@ -49,6 +50,72 @@ export function TablaGestionarUsuarioPlanta() {
               </tr>
             </thead>
             <tbody>
+              {btnEditar && (
+                <tr key={450} style={{ backgroundColor: "#CFCFCF" }}>
+                  <td>
+                    <input
+                      type="submit"
+                      value="Confirmar"
+                      className="btn btn-primary"
+                    />
+                  </td>
+                  <td style={{ textAlign: "center" }}>
+                    <input type="text" disabled={true} />
+                  </td>
+                  <td style={{ textAlign: "center" }}>
+                    <input
+                      type="text"
+                      pattern="^[A-Za-z]{2,15}$"
+                      title="Nombre no valido"
+                      required
+                    />
+                  </td>
+                  <td style={{ textAlign: "center" }}>
+                    <input
+                      type="text"
+                      pattern="^[A-Za-z]{2,15}$"
+                      title="Apellido no valido"
+                      required
+                    />
+                  </td>
+                  <td style={{ textAlign: "center" }}>
+                    <input
+                      type="text"
+                      pattern="^[0-9]{8,12}$"
+                      title="Cedula no valida"
+                      required
+                    />
+                  </td>
+                  <td style={{ textAlign: "center" }}>
+                    <input
+                      type="text"
+                      pattern="^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$"
+                      title="Correo no valido"
+                      required
+                    />
+                  </td>
+                  <td style={{ textAlign: "center" }}>
+                    <input
+                      type="text"
+                      pattern="^[#.0-9a-zA-Z\s,-]+$"
+                      title="Direccion no valida"
+                      required
+                    />
+                  </td>
+                  <td style={{ textAlign: "center" }}>
+                    <input
+                      type="text"
+                      pattern="^[0-9]{10,17}$"
+                      title="Telefono no valido"
+                      required
+                    />
+                  </td>
+                  <td style={{ textAlign: "center" }}>
+                    <input type="text" required />
+                    
+                  </td>
+                </tr>
+              )}
               {Object.keys(data).map((e) => {
                 return (
                   <tr key={e}>
@@ -76,6 +143,18 @@ export function TablaGestionarUsuarioPlanta() {
               marginBottom: "3%",
               marginTop: "10%",
             }}
+          >
+            Generar reporte
+          </button>
+          <button
+            value="Editar"
+            type="button"
+            className="btn btn-success"
+            style={{
+              marginLeft: "1%",
+              marginBottom: "3%",
+              marginTop: "10%",
+            }}
             onClick={(e) => {
               const inputRadios = document.getElementsByName("options");
               for (let i = 0; i < inputRadios.length; i++) {
@@ -85,18 +164,8 @@ export function TablaGestionarUsuarioPlanta() {
                   break;
                 }
               }
-              console.log(id); // <---- este id se va para express
-            }}
-          >
-            Generar reporte
-          </button>
-          <button
-            type="button"
-            className="btn btn-success"
-            style={{
-              marginLeft: "1%",
-              marginBottom: "3%",
-              marginTop: "10%",
+              setBtnEditar(true);
+              console.log(id);
             }}
           >
             Editar usuario de planta
@@ -108,6 +177,9 @@ export function TablaGestionarUsuarioPlanta() {
               marginLeft: "1%",
               marginBottom: "3%",
               marginTop: "10%",
+            }}
+            onClick={(e) => {
+              console.log("Eliminar");
             }}
           >
             Eliminar usuario de planta

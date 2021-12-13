@@ -12,6 +12,7 @@ import { AddUsuarioPlanta } from "./pages/addUsuarioPlanta";
 import { SeccionInicio } from "./pages/seccionInicio";
 import { IniciarSesion } from "./pages/iniciaSesion";
 import { PerfilUsuario } from "./pages/PerfilUsuario";
+
 function App() {
   return (
     <BrowserRouter>
