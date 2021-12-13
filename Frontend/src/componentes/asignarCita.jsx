@@ -38,6 +38,8 @@ export function AsignarCita() {
     }
   }
 
+  console.log("hola");
+
   return (
     <div style={{ marginTop: "3%" }}>
       <form
