@@ -239,7 +239,7 @@ export function AsignarCita() {
                               </div>
                               <div className="form-floating">
                                 <input
-                                  type="date"
+                                  type="datetime-local"
                                   className="form-control"
                                   id="inputFecha"
                                   onChange={(e) => {
@@ -269,7 +269,7 @@ export function AsignarCita() {
                                   htmlFor="inputdate"
                                   className="htmlForm-label"
                                 >
-                                  <strong>Fecha</strong>
+                                  <strong>Fecha - Hora</strong>
                                 </label>
                                 <div
                                   id="errorFecha"
@@ -436,8 +436,9 @@ export function AsignarCita() {
                           className="htmlForm-select"
                           id="floatingSelectGrid"
                           aria-label="Floating label select example"
+                          required
                         >
-                          <option defaultValue>Seleccionar mecánico</option>
+                          <option defaultValue=""></option>
                           <option value="1">Maikol Vitta</option>
                           <option value="2">Basilio Díaz</option>
                           <option value="3">Jorge Martinez</option>

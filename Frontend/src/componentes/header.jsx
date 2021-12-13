@@ -71,8 +71,7 @@ export function Header() {
               Cerrar Sesion
             </button>
           </div>
-        )
-        }
+        )}
       </div>
     </div>
   );
