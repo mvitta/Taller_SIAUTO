@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // V6 -> nuevos cambios
-import { getDatosRolesUsuarios } from "../api/api";
-import { getDatosUsuarios } from "../api/api";
+//import { useNavigate } from "react-router-dom"; // V6 -> nuevos cambios
+import { getUsuario } from "../api/apiusuarios";
+import { getRoles } from "../api/apiroles";
 
 // para prueba o simulacion se usa variable global, cuando se actualiza la pagina los componentes que tienen condicion desaparecen
 let estado = { perfil: undefined, abierto: false };
@@ -11,39 +11,56 @@ export { estado };
 export function Login() {
   // Simulacion
   const [rolesusuarios, setRolesUsuarios] = useState([]);
-  const [usuarios, setUsuarios] = useState([]);
-  const navigate = useNavigate();
+  //const [usuario, setUsuario] = useState(null);
+  //const navigate = useNavigate();
+  const fetch = async () => {
+    const rus = await getRoles();
+    setRolesUsuarios(rus);
+  };
 
   useEffect(() => {
-    const fetch = async () => {
-      const rus = await getDatosRolesUsuarios();
-      const us = await getDatosUsuarios();
-      setRolesUsuarios(rus);
-      setUsuarios(us);
-    };
-
     fetch();
-  }, [rolesusuarios, usuarios]);
+  }, []);
 
   // se busca que el perfil exista en el archivo json
-  function validarSesion() {
+  function validarSesion(){
     const correo = document.getElementById("exampleInputEmail1").value;
-    const rolusua = document.getElementById("selectRol").value;
+    const pass = document.getElementById("exampleInputPassword1").value
+    const rolusua = document.getElementById("rol").value;
 
-    const result = usuarios.find((item) => item.correo.includes(correo));
+    const iniciarSesion = async (data) => {
+      const rus = await getUsuario(data);
+      return rus;
+    };
 
-    if (
-      result.rol !== null &&
-      result.rol === rolusua &&
-      result.correo === correo
-    ) {
-      estado = { perfil: result.rol, abierto: true };
+    iniciarSesion({correo, pass, rolusua});
 
-      navigate("/Inicio");
-    }
+    console.log(iniciarSesion);
 
-    console.log(estado.perfil, estado.abierto);
-  }
+    //const sesion = getUsuario({correo, pass, rolusua});
+
+    //if(sesion){
+      //console.log(sesion);
+    //}
+      
+    
+
+    //const result = usuarios.find((item) => item.correo.includes(correo));
+
+    //if (
+      //result.rol !== null &&
+      //result.rol === rolusua &&
+      //result.correo === correo
+    //) {
+      //estado = { perfil: result.rol, abierto: true };
+
+      //navigate("/Inicio");
+    //}
+
+    //console.log(estado.perfil, estado.abierto);
+  };
+
+  console.log("ROLES DE USUARIOS ",rolesusuarios);
 
   return (
     <div>
@@ -58,6 +75,7 @@ export function Login() {
               </label>
               <input
                 type="email"
+                name="correo"
                 className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
@@ -69,6 +87,7 @@ export function Login() {
               </label>
               <input
                 type="password"
+                name="password"
                 className="form-control"
                 id="exampleInputPassword1"
               />
@@ -80,13 +99,13 @@ export function Login() {
               <select
                 className="form-select"
                 aria-label="Default select example"
-                id="selectRol"
-                name="selectRol"
+                id="rol"
+                name="rol"
               >
-                <option value={null}>Seleccione Rol de Usuario</option>
+                <option key={null} value={null}>Seleccione Rol de Usuario</option>
                 {rolesusuarios.map((ruser) => (
-                  <option key={ruser.id} value={ruser.id}>
-                    {ruser.rol}
+                  <option key={ruser._id} value={ruser._id}>
+                    {ruser.nombre_rol}
                   </option>
                 ))}
               </select>

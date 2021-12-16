@@ -1,7 +1,8 @@
 const exp = require("express");
 const router = exp.Router();
 
-const datos = [
+/**
+ * const datos = [
   {
     nombre: "Maikol",
     apellido: "Vitaa",
@@ -21,6 +22,9 @@ const datos = [
     sexo: "masculino",
   },
 ];
+ * 
+ */
+
 
 router.get("perfil", (req, res) => {});
 
