@@ -65,6 +65,7 @@ export function Formulario() {
             body: JSON.stringify(datos),
             headers: {
               "Content-Type": "application/json",
+             
             },
           })
             .then((res) => res.json())

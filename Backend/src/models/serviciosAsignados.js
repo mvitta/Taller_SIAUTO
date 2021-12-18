@@ -1,57 +1,47 @@
+const { Int32 } = require("mongodb");
 const mongoose = require("mongoose");
 
-const usuarioSchema = mongoose.Schema({
-  cedula: {
-    type: Number,
-    unique: true,
-    required: true,
-  },
-  nombre: {
+const serviciosAsignadosSchema = mongoose.Schema({
+  mecanico: {
     type: String,
     unique: false,
     required: true,
   },
-  apellido: {
+  cliente: {
     type: String,
     unique: false,
     required: true,
   },
-  correo: {
+  marca: {
     type: String,
     unique: false,
     required: true,
   },
-  direccion: {
+  modelo: {
     type: String,
     unique: false,
     required: true,
   },
-  telefono: {
-    type: Number,
-    unique: false,
-    required: true,
-  },
-  sexo: {
-    type: String,
-    unique: false,
-    required: true,
-    enum: ["Masculino", "Femenino", "Indiferente"],
-  },
-  rol: {
+  año: {
     type: String,
     unique: false,
     required: true,
   },
-  password: {
+  servicios: {
+    type: Array,
+    unique: false,
+    required: true,
+  },
+  fecha: {
     type: String,
     unique: false,
     required: true,
   },
-  fecha_registro: {
-    type: Date,
+  hora: {
+    type: String,
     unique: false,
-    require: false,
+    required: true,
   },
 });
 
-module.exports = mongoose.model("usuario", usuarioSchema);
+module.exports = mongoose.model("serviciosAsignados", serviciosAsignadosSchema);

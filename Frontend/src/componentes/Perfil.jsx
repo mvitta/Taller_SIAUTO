@@ -1,11 +1,17 @@
 import React from "react";
+import { UserContext } from "../context/UserContext";
 import foto from "../Imagenes/Imagenes servicio en proceso/Perfil.jpg";
 
-export function Perfil(props) {
+export function Perfil() {
+  const { user } = React.useContext(UserContext);
+
+  // console.log("userContext PERFIL: ", user);
+
   const myStyle = {
     color: "white",
     margin: "2%",
   };
+
   return (
     <div className="container" style={{ margin: "4%" }}>
       <div className="row">
@@ -65,7 +71,7 @@ export function Perfil(props) {
               <input
                 type="text"
                 className="form-control"
-                value="123456789"
+                value={user.cedula}
                 aria-label="Username"
                 aria-describedby="addon-wrapping"
                 disabled
@@ -78,7 +84,7 @@ export function Perfil(props) {
               <input
                 type="text"
                 className="form-control"
-                value="Maikol"
+                value={user.nombre}
                 aria-label="Username"
                 aria-describedby="addon-wrapping"
                 disabled
@@ -91,7 +97,7 @@ export function Perfil(props) {
               <input
                 type="text"
                 className="form-control"
-                value="Apellido"
+                value={user.apellido}
                 aria-label="Username"
                 aria-describedby="addon-wrapping"
                 disabled
@@ -104,7 +110,7 @@ export function Perfil(props) {
               <input
                 type="text"
                 className="form-control"
-                value="mvitta@uninorte.com"
+                value={user.correo}
                 aria-label="Username"
                 aria-describedby="addon-wrapping"
                 disabled
@@ -112,12 +118,14 @@ export function Perfil(props) {
             </div>
             <div>
               <div style={myStyle}>
-                <h5 className="card-title">Direccion</h5>
+                <h5 className="card-title">
+                  Direccion
+                </h5>
               </div>
               <input
                 type="text"
                 className="form-control"
-                value="Cra 51B # 100 - 12"
+                value={user.direccion}
                 aria-label="Username"
                 aria-describedby="addon-wrapping"
                 disabled
@@ -130,7 +138,7 @@ export function Perfil(props) {
               <input
                 type="text"
                 className="form-control"
-                value="Apellido"
+                value={user.telefono}
                 aria-label="Username"
                 aria-describedby="addon-wrapping"
                 disabled
@@ -143,7 +151,7 @@ export function Perfil(props) {
               <input
                 type="text"
                 className="form-control"
-                value="Masculino"
+                value={user.sexo}
                 aria-label="Username"
                 aria-describedby="addon-wrapping"
                 disabled

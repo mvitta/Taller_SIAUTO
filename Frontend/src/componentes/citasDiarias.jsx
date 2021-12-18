@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 
 export function CitasDiarias() {
+  const [data, setsData] = useState({});
   const [id, setId] = useState(0);
   const [btnEditar, setBtnEditar] = useState(false);
   const [stateCheckbox] = useState(false);
+
+  React.useEffect(() => {
+    var url = "http://localhost:4000/citas";
+    fetch(url)
+      .then((res) => res.json())
+      .then((response) => {
+        console.log(response);
+        setsData(response);
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <div style={{ marginTop: "5%" }}>
@@ -11,7 +23,7 @@ export function CitasDiarias() {
         <div className="table-responsive">
           <table className="table">
             <thead className="fondo text-white">
-              <tr>
+              <tr key={123456938284}>
                 <th scope="col" style={{ textAlign: "center" }}>
                   Seleccionar
                 </th>
@@ -89,77 +101,90 @@ export function CitasDiarias() {
                   </td>
                 </tr>
               )}
-              <tr>
-                <th>
-                  <input type="radio" name="options" id={1} />
-                </th>
-                <th style={{ textAlign: "center" }}>1</th>
-                <td style={{ textAlign: "center" }}>abc-123</td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                    disabled={stateCheckbox}
-                    checked={true}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                    disabled={stateCheckbox}
-                    checked={true}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                    disabled={stateCheckbox}
-                    checked={true}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                    disabled={stateCheckbox}
-                    checked={true}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                    disabled={stateCheckbox}
-                    checked={true}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                    disabled={stateCheckbox}
-                    checked={true}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                    disabled={stateCheckbox}
-                    checked={true}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    style={{ marginLeft: "50%" }}
-                    disabled={stateCheckbox}
-                    checked={true}
-                  />
-                </td>
-              </tr>
+
+              {Object.keys(data).map((e) => {
+                return (
+                  <tr key={data[e]._id}>
+                    <td>
+                      <input type="radio" name="options" id={1} />
+                    </td>
+                    <td style={{ textAlign: "center" }}>{data[e]._id}</td>
+                    <td style={{ textAlign: "center" }}>{data[e].placa}</td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        style={{ marginLeft: "50%" }}
+                        disabled={stateCheckbox}
+                        checked={data[e].frenos}
+                        onChange={() => {}}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        style={{ marginLeft: "50%" }}
+                        disabled={stateCheckbox}
+                        checked={data[e].pastillas}
+                        onChange={() => {}}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        style={{ marginLeft: "50%" }}
+                        disabled={stateCheckbox}
+                        checked={data[e].discos}
+                        onChange={() => {}}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        style={{ marginLeft: "50%" }}
+                        disabled={stateCheckbox}
+                        checked={data[e].suspension}
+                        onChange={() => {}}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        style={{ marginLeft: "50%" }}
+                        disabled={stateCheckbox}
+                        checked={data[e].amortiguadores}
+                        onChange={() => {}}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        style={{ marginLeft: "50%" }}
+                        disabled={stateCheckbox}
+                        checked={data[e].aceite}
+                        onChange={() => {}}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        style={{ marginLeft: "50%" }}
+                        disabled={stateCheckbox}
+                        checked={data[e].alineacion}
+                        onChange={() => {}}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        style={{ marginLeft: "50%" }}
+                        disabled={stateCheckbox}
+                        checked={data[e].rotacion}
+                        onChange={() => {}}
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
           <button
