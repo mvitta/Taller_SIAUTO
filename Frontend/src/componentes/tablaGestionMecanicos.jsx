@@ -11,7 +11,7 @@ export function TablaGestionMecanico() {
   };
 
   useEffect(() => {
-    var url = "http://localhost:4000/siAuto/usuariosMecanico";
+    var url = "http://localhost:4000/usuariosMecanicos";
     fetch(url)
       .then((res) => res.json())
       .then((response) => setsData(response))

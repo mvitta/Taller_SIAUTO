@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { estado } from "../componentes/formLogin";
 import { getDatosPermisos } from "../api/api";
+import { UserContext } from "../context/UserContext";
 
 export function Menu() {
-  const [sesion] = useState(estado.perfil);
   const [opcionesMenu, setOpcionesMenu] = useState([]);
- 
+  const { user } = React.useContext(UserContext);
+
+  // console.log("userContext MENU:", user);
 
   useEffect(() => {
     const fetch = async () => {
@@ -15,8 +16,7 @@ export function Menu() {
     };
 
     fetch();
-    
-  }, [opcionesMenu]);
+  }, []);
 
   return (
     <nav
@@ -28,7 +28,7 @@ export function Menu() {
           {opcionesMenu.map(
             (elemento) =>
               // si en el vector de permisos se encuenta lo que esta almacenado en sesion, muestra el elemento
-              elemento.permisos.includes(sesion) && (
+              elemento.permisos.includes(user.rol) && (
                 <li className="nav-item" key={elemento.id}>
                   <Link className="nav-link" to={elemento.ruta}>
                     {elemento.valor}

@@ -1,6 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // V6 -> nuevos cambios
 
 export function ServiciosAsignados() {
+  const [data, setsData] = React.useState({});
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    var url = "http://localhost:4000/serviciosAginados";
+    fetch(url)
+      .then((res) => res.json())
+      .then((response) => {
+        // console.log(response);
+        setsData(response);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <div>
       <div style={{ marginTop: "3%" }}>
@@ -24,7 +39,7 @@ export function ServiciosAsignados() {
         <form action="" method="post">
           <table className="table">
             <thead className="fondo text-white">
-              <tr>
+              <tr key={6834623834}>
                 <th scope="col">Seleccionar</th>
                 <th scope="col">No</th>
                 <th scope="col">ID del Servicio</th>
@@ -40,87 +55,58 @@ export function ServiciosAsignados() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>
-                  <input type="radio" name="options" id="option1" />
-                </th>
-                <th>1</th>
-                <td>1</td>
-                <td>Basilio</td>
-                <td>Laura</td>
-                <td>Chevrolet</td>
-                <td>Sail</td>
-                <td>2021</td>
-                <td>
-                  <select className="custom-select" id="inputGroupSelect01">
-                    <option defaultValue>Abrir</option>
-                    <option value="1">Revision de frenos</option>
-                    <option value="2">Suspension</option>
-                    <option value="3">Alineacion</option>
-                  </select>
-                </td>
-                <td>23/11/2021</td>
-                <td>01:00.000 P.M</td>
-                <td style={{ color: "white", backgroundColor: "red" }}>
-                  Sin iniciar
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  <input type="radio" name="options" id="option2" />
-                </th>
-                <th>2</th>
-                <td>2</td>
-                <td>Basilio</td>
-                <td>Laura</td>
-                <td>Chevrolet</td>
-                <td>Sail</td>
-                <td>2021</td>
-                <td>
-                  <select className="custom-select" id="inputGroupSelect01">
-                    <option defaultValue>Abrir</option>
-                    <option value="1">Revision de frenos</option>
-                    <option value="2">Suspension</option>
-                    <option value="3">Alineacion</option>
-                  </select>
-                </td>
-                <td>23/11/2021</td>
-                <td>02:00.000 P.M</td>
-                <td style={{ color: "white", backgroundColor: "red" }}>
-                  Sin iniciar
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  <input type="radio" name="options" id="option2" />
-                </th>
-                <th>3</th>
-                <td>3</td>
-                <td>Basilio</td>
-                <td>Laura</td>
-                <td>Chevrolet</td>
-                <td>Sail</td>
-                <td>2021</td>
-                <td>
-                  <select className="custom-select" id="inputGroupSelect01">
-                    <option defaultValue>Abrir</option>
-                    <option value="1">Revision de frenos</option>
-                    <option value="2">Suspension</option>
-                    <option value="3">Alineacion</option>
-                  </select>
-                </td>
-                <td>23/11/2021</td>
-                <td>03:00.000 P.M</td>
-                <td style={{ color: "white", backgroundColor: "red" }}>
-                  Sin iniciar
-                </td>
-              </tr>
+              {Object.keys(data).map((e) => {
+                return (
+                  <tr key={e}>
+                    <td key={data[e]._id}>
+                      <input type="radio" name="options" id={data[e]._id} />
+                    </td>
+                    <td>{parseInt(e) + 1}</td>
+                    <td>{data[e]._id}</td>
+                    <td>{data[e].mecanico}</td>
+                    <td>{data[e].cliente}</td>
+                    <td>{data[e].marca}</td>
+                    <td>{data[e].modelo}</td>
+                    <td>{data[e].año}</td>
+                    <td>
+                      <select className="custom-select" id="inputGroupSelect01">
+                        {data[e].servicios.map((element) => {
+                          return (
+                            <React.Fragment>
+                              <option key={data[e]._id} value={element}>
+                                {element}
+                              </option>
+                            </React.Fragment>
+                          );
+                        })}
+                      </select>
+                    </td>
+                    <td>{data[e].fecha}</td>
+                    <td>{data[e].hora}</td>
+                    <td style={{ color: "white", backgroundColor: "red" }}>
+                      Sin iniciar
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
           <button
             type="button"
             className="btn btn-primary"
             style={{ marginLeft: "1%", marginBottom: "5%" }}
+            onClick={(e) => {
+              const inputRadios = document.getElementsByName("options");
+              let estadoRadio = null;
+              for (let i = 0; i < inputRadios.length; i++) {
+                const input = inputRadios[i];
+                if (input.checked) {
+                  estadoRadio = input.id;
+                  break;
+                }
+              }
+              navigate(`/ServiciosEnProcesos/${estadoRadio}`);
+            }}
           >
             Seleccionar Servicio
           </button>

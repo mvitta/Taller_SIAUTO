@@ -1,66 +1,45 @@
-import React, { useEffect, useState } from "react";
-//import { useNavigate } from "react-router-dom"; // V6 -> nuevos cambios
-import { getUsuario } from "../api/apiusuarios";
-import { getRoles } from "../api/apiroles";
-
-// para prueba o simulacion se usa variable global, cuando se actualiza la pagina los componentes que tienen condicion desaparecen
-let estado = { perfil: undefined, abierto: false };
-
-export { estado };
+import React from "react";
+import { useNavigate } from "react-router-dom"; // V6 -> nuevos cambios
+import { UserContext } from "../context/UserContext";
+// import { getUsuario } from "../api/apiusuarios";
+// import { getRoles } from "../api/apiroles";
 
 export function Login() {
   // Simulacion
-  const [rolesusuarios, setRolesUsuarios] = useState([]);
-  //const [usuario, setUsuario] = useState(null);
-  //const navigate = useNavigate();
-  const fetch = async () => {
-    const rus = await getRoles();
-    setRolesUsuarios(rus);
-  };
+  // const [rolesusuarios, setRolesUsuarios] = useState([]);
+  const { user, setUser } = React.useContext(UserContext);
 
-  useEffect(() => {
-    fetch();
-  }, []);
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    // console.log("userContext (LOGIN): ", user);
+    if (user) {
+      if (user.correo === "maikol@correo.com") {
+        navigate("/Inicio");
+      }
+    } else {
+      console.log("Ingresa un usuario valido");
+    }
+  }, [user, navigate]);
 
   // se busca que el perfil exista en el archivo json
-  function validarSesion(){
+  function validarSesion() {
     const correo = document.getElementById("exampleInputEmail1").value;
-    const pass = document.getElementById("exampleInputPassword1").value
-    const rolusua = document.getElementById("rol").value;
 
-    const iniciarSesion = async (data) => {
-      const rus = await getUsuario(data);
-      return rus;
-    };
+    var data = { correo: correo };
 
-    iniciarSesion({correo, pass, rolusua});
-
-    console.log(iniciarSesion);
-
-    //const sesion = getUsuario({correo, pass, rolusua});
-
-    //if(sesion){
-      //console.log(sesion);
-    //}
-      
-    
-
-    //const result = usuarios.find((item) => item.correo.includes(correo));
-
-    //if (
-      //result.rol !== null &&
-      //result.rol === rolusua &&
-      //result.correo === correo
-    //) {
-      //estado = { perfil: result.rol, abierto: true };
-
-      //navigate("/Inicio");
-    //}
-
-    //console.log(estado.perfil, estado.abierto);
-  };
-
-  console.log("ROLES DE USUARIOS ",rolesusuarios);
+    var url = "http://localhost:4000/login";
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .catch((error) => console.error("Error:", error))
+      .then((response) => setUser(response));
+  }
 
   return (
     <div>
@@ -68,7 +47,12 @@ export function Login() {
         style={{ display: "flex", justifyContent: "center", marginTop: "1.5%" }}
       >
         <div style={{ width: "40%" }}>
-          <form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              validarSesion();
+            }}
+          >
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Correo Electronico
@@ -102,12 +86,10 @@ export function Login() {
                 id="rol"
                 name="rol"
               >
-                <option key={null} value={null}>Seleccione Rol de Usuario</option>
-                {rolesusuarios.map((ruser) => (
-                  <option key={ruser._id} value={ruser._id}>
-                    {ruser.nombre_rol}
-                  </option>
-                ))}
+                <option value=""></option>
+                <option value="administrador">administrador</option>
+                <option value="mecanico">mecanico</option>
+                <option value="planta">planta</option>
               </select>
             </div>
             <div className="mb-3 form-check">
@@ -127,10 +109,9 @@ export function Login() {
             </div>
             <div style={{ textAlign: "center" }}>
               <button
-                type="button"
+                type="submit"
                 className="btn btn-primary"
                 style={{ margin: "1%" }}
-                onClick={validarSesion} // <---------------------- ir pagina
               >
                 Ingresar
               </button>

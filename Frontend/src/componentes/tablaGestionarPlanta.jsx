@@ -6,7 +6,7 @@ export function TablaGestionarUsuarioPlanta() {
   const [btnEditar, setBtnEditar] = useState(false);
 
   useEffect(() => {
-    var url = "http://localhost:4000/siAuto/usuariosPlanta";
+    var url = "http://localhost:4000/usuariosPlantas";
     fetch(url)
       .then((res) => res.json())
       .then((response) => setData(response))

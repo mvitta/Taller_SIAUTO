@@ -1,9 +1,22 @@
 import React, { useState } from "react";
 
 export function ConfigurarServicio() {
+  const [data, setsData] = useState({});
   const [id, setId] = useState(0);
   const [btnEditar, setBtnEditar] = useState(false);
   const style = { textAlign: "center" };
+
+  React.useEffect(() => {
+    var url = "http://localhost:4000/servicios";
+    fetch(url)
+      .then((res) => res.json())
+      .then((response) => {
+        console.log(response);
+        setsData(response);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <div style={{ marginTop: "5%" }}>
       <form action="" method="">
@@ -42,84 +55,19 @@ export function ConfigurarServicio() {
                   </td>
                 </tr>
               )}
-              <tr>
-                <td>
-                  <input type="radio" name="options" id={1} />
-                </td>
-                <td>1</td>
-                <td>Revisión de Frenos</td>
-                <td>Revisión de Frenos en el vehículo</td>
-                <td style={style}>5</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="radio" name="options" id={2} />
-                </td>
-                <td>2</td>
-                <td>Pastillas</td>
-                <td>Revisión de pastillas en el vehículo</td>
-                <td style={style}>4</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <input type="radio" name="options" id={3} />
-                </td>
-                <td>3</td>
-                <td>Discos</td>
-                <td>Revisión de discos de frenos</td>
-                <td style={style}>10</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <input type="radio" name="options" id={4} />
-                </td>
-                <td>4</td>
-                <td>suspensión</td>
-                <td>Revisión del sistema de suspensión en el vehículo</td>
-                <td style={style}>10</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <input type="radio" name="options" id={5} />
-                </td>
-                <td>5</td>
-                <td>Amortiguadores</td>
-                <td>Revisión de amostiguadores en el vehículo</td>
-                <td style={style}>12</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <input type="radio" name="options" id={6} />
-                </td>
-                <td>6</td>
-                <td>Cambio de Aceite</td>
-                <td>Cambio de aceite en el vehículo</td>
-                <td style={style}>8</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <input type="radio" name="options" id={7} />
-                </td>
-                <td>7</td>
-                <td>Alineación</td>
-                <td>Alineación del vehículo</td>
-                <td style={style}>2</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <input type="radio" name="options" id={8} />
-                </td>
-                <td>8</td>
-                <td>Rotación de llantas</td>
-                <td>Revisión de rotación de llantas en el vehículo</td>
-                <td style={style}>14</td>
-              </tr>
+              {Object.keys(data).map((e) => {
+                return (
+                  <tr key={data[e]._id}>
+                    <td>
+                      <input type="radio" name="options" id={e} />
+                    </td>
+                    <td>{data[e]._id}</td>
+                    <td>{data[e].servicio}</td>
+                    <td>{data[e].descripcion}</td>
+                    <td style={style}>{data[e].duracion}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

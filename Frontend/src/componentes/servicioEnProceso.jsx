@@ -1,36 +1,52 @@
-import React, { useEffect, useState } from "react";
-import { getDatosTiposServicios } from "../api/api";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 export function ServiciosEnProceso() {
+  const [data, setData] = React.useState({});
   const [todosServicios, setTodosServicios] = useState([]);
 
-  useEffect(() => {
-    const fetch = async () => {
-      const todoser = await getDatosTiposServicios();
-      setTodosServicios(todoser);
-    };
+  const laID = useParams().id;
+  // console.log(laID);
 
-    fetch();
-    
-  }, [todosServicios]);
+  React.useEffect(() => {
+    console.log(data);
+  }, [data]);
 
-  const getImage = (imageName) => {
-    const imagen = imageName;
-    return require("../Imagenes/Imagenes servicio en proceso/"+imagen).default
-  };
+  function enviarID() {
+    var url = "http://localhost:4000/servicioEnProceso";
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({ id: laID }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .catch((error) => console.error("Error:", error))
+      .then((response) => setData(response));
+  }
 
   return (
     <div className="container" style={{ padding: "5%" }}>
-      <form method="post">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          enviarID();
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <button type="submit">Obtener Servicio</button>
+        </div>
+      </form>
+
+      <form>
         <div className="row row-cols-3">
-          {todosServicios.map((serv) => (
+          {Object.keys(data).map((e) => (
             <div className="col" style={{ textAlign: "center" }}>
               <div className="fondo">
-                <h1 className="letras" style={{ fontWeight: "bold" }}>
-                  {serv.titulo}
-                </h1>
+                <h1 className="letras">{e}</h1>
               </div>
-              <img width="100%" src={getImage(serv.imagen)} alt="" />
+              <img width="100%" src="" alt="" />
 
               <div style={{ margin: "5%" }}>
                 <button type="button" className="btn btn-outline-success" id="">
@@ -44,7 +60,7 @@ export function ServiciosEnProceso() {
           ))}
         </div>
         <div style={{ margin: "4%", textAlign: "center" }}>
-          <button type="submit" className="btn btn-primary">
+          <button type="button" className="btn btn-primary">
             Completar Servicio
           </button>
         </div>
