@@ -9,6 +9,13 @@
     color: white;
 }
 
+.sinTerminar {
+    background: rgb(129, 11, 11);
+    background: radial-gradient(circle, rgba(177, 51, 51, 0.897) 14%, rgb(167, 38, 38) 23%, rgb(201, 21, 21) 100%);
+    color: white;
+}
+
+
 .letras {
     color: white;
     font-size: 25px;

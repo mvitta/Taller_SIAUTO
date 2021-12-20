@@ -19,7 +19,7 @@ export function AddUsuarioPlanta() {
             style={{ height: "100%" }}
           >
             <Titulo titulo="Agregar Usuario De Planta" />
-            <Formulario />
+            <Formulario rol="planta"/>
           </main>
           <footer className="fondo text-center text-white">
             <Footer />

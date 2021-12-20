@@ -19,7 +19,7 @@ export function AddMecanico() {
             style={{ height: "100%" }}
           >
             <Titulo titulo="Agregar Usuario Mecanico" />
-            <Formulario />
+            <Formulario rol="mecanico"/>
           </main>
           <footer className="fondo text-center text-white">
             <Footer />

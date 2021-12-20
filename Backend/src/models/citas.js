@@ -6,43 +6,87 @@ const citasSchema = mongoose.Schema({
     unique: false,
     required: true,
   },
-  frenos: {
-    type: Boolean,
+  apellido: {
+    type: String,
     unique: false,
     required: true,
   },
-  pastillas: {
-    type: Boolean,
+  año: {
+    type: Number,
     unique: false,
     required: true,
   },
-  discos: {
-    type: Boolean,
+  cedula: {
+    type: Number,
     unique: false,
     required: true,
   },
-  suspension: {
-    type: Boolean,
+  marca: {
+    type: String,
     unique: false,
     required: true,
   },
-  amortiguadores: {
-    type: Boolean,
+
+  modelo: {
+    type: String,
     unique: false,
     required: true,
   },
+
+  nombre: {
+    type: String,
+    unique: false,
+    required: true,
+  },
+
+  mecanico: {
+    type: String,
+    unique: false,
+    required: true,
+  },
+
   aceite: {
     type: Boolean,
     unique: false,
-    required: true,
   },
+
   alineacion: {
     type: Boolean,
     unique: false,
-    required: true,
   },
+
+  amortiguadores: {
+    type: Boolean,
+    unique: false,
+  },
+
+  discos: {
+    type: Boolean,
+    unique: false,
+  },
+
+  frenos: {
+    type: Boolean,
+    unique: false,
+  },
+
+  pastillas: {
+    type: Boolean,
+    unique: false,
+  },
+
   rotacion: {
     type: Boolean,
+    unique: false,
+  },
+
+  suspension: {
+    type: Boolean,
+    unique: false,
+  },
+
+  fecha: {
+    type: Date,
     unique: false,
     required: true,
   },
