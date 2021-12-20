@@ -157,7 +157,7 @@ export function TablaGestionarUsuarioPlanta() {
                 return (
                   <tr key={e}>
                     <th>
-                      <input type="radio" name="options" id={e} />
+                      <input type="radio" name="options" id={data[e]._id} />
                     </th>
                     <td style={{ textAlign: "center" }}>{data[e]._id}</td>
                     <td style={{ textAlign: "center" }}>{data[e].nombre}</td>

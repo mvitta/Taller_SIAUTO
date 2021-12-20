@@ -81,7 +81,8 @@ export function CitasDiarias() {
                         aceite: document.getElementById("editAceite").checked,
                         alineacion:
                           document.getElementById("editAlineacion").checked,
-                        rotacion: document.getElementById("editRotacion").checked,
+                        rotacion:
+                          document.getElementById("editRotacion").checked,
                       };
 
                       console.log(editDatos);
@@ -100,7 +101,7 @@ export function CitasDiarias() {
                         .catch((error) => console.error("Error:", error))
                         .then((response) => {
                           console.log(response);
-                          alert(response.message)
+                          alert(response.message);
                         });
                     }}
                   />
@@ -141,7 +142,7 @@ export function CitasDiarias() {
                 return (
                   <tr key={data[e]._id}>
                     <td>
-                      <input type="radio" name="options" id={e} />
+                      <input type="radio" name="options" id={data[e]._id} />
                     </td>
                     <td style={{ textAlign: "center" }}>{data[e]._id}</td>
                     <td style={{ textAlign: "center" }}>{data[e].placa}</td>

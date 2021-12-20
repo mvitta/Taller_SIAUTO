@@ -5,9 +5,10 @@ import { UserContext } from "../context/UserContext";
 
 export function Menu() {
   const [opcionesMenu, setOpcionesMenu] = useState([]);
-  const { user } = React.useContext(UserContext);
+  const { user, setUser } = React.useContext(UserContext);
 
   // console.log("userContext MENU:", user);
+  console.log(user);
 
   useEffect(() => {
     const fetch = async () => {

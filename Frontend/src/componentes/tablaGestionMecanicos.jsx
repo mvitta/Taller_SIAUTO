@@ -93,7 +93,7 @@ export function TablaGestionMecanico() {
                         .then((id) => id.json())
                         .catch((error) => {
                           console.error("Error:", error);
-                          alert(error)
+                          alert(error);
                         })
                         .then((response) => {
                           console.log(response);
@@ -169,7 +169,7 @@ export function TablaGestionMecanico() {
                 return (
                   <tr key={400 + e}>
                     <th>
-                      <input type="radio" name="options" id={e} />
+                      <input type="radio" name="options" id={data[e]._id} />
                     </th>
                     <td style={{ textAlign: "center" }}>{data[e]._id}</td>
                     <td style={{ textAlign: "center" }}>{data[e].nombre}</td>
