@@ -59,7 +59,7 @@ export function ConfigurarServicio() {
                 return (
                   <tr key={data[e]._id}>
                     <td>
-                      <input type="radio" name="options" id={e} />
+                      <input type="radio" name="options" id={data[e]._id} />
                     </td>
                     <td>{data[e]._id}</td>
                     <td>{data[e].servicio}</td>
@@ -97,7 +97,36 @@ export function ConfigurarServicio() {
             className="btn btn-danger"
             style={{ marginLeft: "1%", marginBottom: "5%" }}
             onClick={(e) => {
-              console.log("Eliminar");
+              const inputRadios = document.getElementsByName("options");
+              let id = null;
+              for (let i = 0; i < inputRadios.length; i++) {
+                const input = inputRadios[i];
+                if (input.checked) {
+                  id = input.id;
+                  break;
+                }
+              }
+              if (id === null) {
+                alert("para eliminar un registro debes selecionar un id");
+              } else {
+                console.log(id);
+                var url = "http://localhost:4000/serviciosBorrar";
+                fetch(url, {
+                  method: "POST",
+
+                  body: JSON.stringify({ _id: id }),
+                  headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                  },
+                })
+                  .then((res) => res.json())
+                  .catch((error) => console.error("Error:", error))
+                  .then((response) => {
+                    console.log(response);
+                    alert(response.message);
+                  });
+              }
             }}
           >
             Eliminar

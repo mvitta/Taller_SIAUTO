@@ -47,16 +47,40 @@ export function AsignarCita() {
         method="post"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(
-            nombre.valido,
-            apellido.valido,
-            cedula.valido,
-            marca.valido,
-            modelo.valido,
-            año.valido,
-            placa.valido,
-            fecha.valido
-          );
+          const datos = {
+            nombre: document.getElementById("inputNombre").value,
+            apellido: document.getElementById("inputApellido").value,
+            cedula: document.getElementById("inputCedula").value,
+            marca: document.getElementById("inputMarca").value,
+            modelo: document.getElementById("inputModelo").value,
+            año: document.getElementById("inputAño").value,
+            placa: document.getElementById("inputPlaca").value,
+            fecha: document.getElementById("inputFecha").value,
+            frenos: document.getElementById("frenos").checked,
+            pastillas: document.getElementById("pastillas").checked,
+            discos: document.getElementById("discos").checked,
+            amortiguadores: document.getElementById("amortiguadores").checked,
+            aceite: document.getElementById("aceite").checked,
+            alineacion: document.getElementById("alineacion").checked,
+            rotacion: document.getElementById("rotacion").checked,
+            suspension: document.getElementById("suspension").checked,
+            mecanico: document.getElementById("mecanico").value,
+          };
+          console.log(datos);
+          var url = "http://localhost:4000/citas";
+          fetch(url, {
+            method: "POST",
+            body: JSON.stringify(datos),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((res) => res.json())
+            .catch((error) => console.error("Error:", error))
+            .then((response) => {
+              console.log("Peticion exitosa:", response);
+              alert(response.message);
+            });
         }}
       >
         <div className="container">
@@ -84,6 +108,7 @@ export function AsignarCita() {
                                       setNombre
                                     );
                                   }}
+                                  required
                                 />
                                 <label htmlFor="inputname">
                                   <strong>Nombre</strong>
@@ -107,6 +132,7 @@ export function AsignarCita() {
                                       setApellido
                                     );
                                   }}
+                                  required
                                 />
                                 <label htmlFor="inputlastname">
                                   <strong>Apellido</strong>
@@ -130,6 +156,7 @@ export function AsignarCita() {
                                       setCedula
                                     );
                                   }}
+                                  required
                                 />
                                 <label htmlFor="inputdocument">
                                   <strong>Cédula</strong>
@@ -153,6 +180,7 @@ export function AsignarCita() {
                                       setMarca
                                     );
                                   }}
+                                  required
                                 />
                                 <label htmlFor="inputmarca">
                                   <strong>Marca</strong>
@@ -184,6 +212,7 @@ export function AsignarCita() {
                                       setModelo
                                     );
                                   }}
+                                  required
                                 />
                                 <label htmlFor="inputmodel">
                                   <strong>Modelo</strong>
@@ -207,6 +236,7 @@ export function AsignarCita() {
                                       setAño
                                     );
                                   }}
+                                  required
                                 />
                                 <label htmlFor="inputyear">
                                   <strong>Año</strong>
@@ -230,6 +260,7 @@ export function AsignarCita() {
                                       setPlaca
                                     );
                                   }}
+                                  required
                                 />
                                 <label htmlFor="inputmodel">
                                   <strong>Placa</strong>
@@ -266,6 +297,7 @@ export function AsignarCita() {
                                       });
                                     }
                                   }}
+                                  required
                                 />
                                 <label
                                   htmlFor="inputdate"
@@ -306,7 +338,7 @@ export function AsignarCita() {
                                 className="htmlForm-check-input "
                                 type="checkbox"
                                 value=""
-                                id="servicioDisponible"
+                                id="frenos"
                                 name="servicioDisponible"
                               />
                             </div>
@@ -325,7 +357,7 @@ export function AsignarCita() {
                                 className="htmlForm-check-input "
                                 type="checkbox"
                                 value=""
-                                id="servicioDisponible"
+                                id="pastillas"
                                 name="servicioDisponible"
                               />
                             </div>
@@ -334,7 +366,7 @@ export function AsignarCita() {
                       </td>
                     </tr>
                     <tr>
-                      <td>Discos de suspensión</td>
+                      <td>Discos</td>
                       <td>
                         <div className="container">
                           <div className="row justify-content-center">
@@ -343,7 +375,26 @@ export function AsignarCita() {
                                 className="htmlForm-check-input "
                                 type="checkbox"
                                 value=""
-                                id="servicioDisponible"
+                                id="discos"
+                                name="servicioDisponible"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Suspension</td>
+                      <td>
+                        <div className="container">
+                          <div className="row justify-content-center">
+                            <div className="htmlForm-check">
+                              <input
+                                className="htmlForm-check-input "
+                                type="checkbox"
+                                value=""
+                                id="suspension"
                                 name="servicioDisponible"
                               />
                             </div>
@@ -362,7 +413,7 @@ export function AsignarCita() {
                                 className="htmlForm-check-input "
                                 type="checkbox"
                                 value=""
-                                id="servicioDisponible"
+                                id="amortiguadores"
                                 name="servicioDisponible"
                               />
                             </div>
@@ -380,7 +431,7 @@ export function AsignarCita() {
                                 className="htmlForm-check-input "
                                 type="checkbox"
                                 value=""
-                                id="servicioDisponible"
+                                id="aceite"
                                 name="servicioDisponible"
                               />
                             </div>
@@ -398,7 +449,7 @@ export function AsignarCita() {
                                 className="htmlForm-check-input "
                                 type="checkbox"
                                 value=""
-                                id="servicioDisponible"
+                                id="alineacion"
                                 name="servicioDisponible"
                               />
                             </div>
@@ -416,7 +467,7 @@ export function AsignarCita() {
                                 className="htmlForm-check-input "
                                 type="checkbox"
                                 value=""
-                                id="servicioDisponible"
+                                id="rotacion"
                                 name="servicioDisponible"
                               />
                             </div>
@@ -436,14 +487,14 @@ export function AsignarCita() {
                       <td>
                         <select
                           className="htmlForm-select"
-                          id="floatingSelectGrid"
+                          id="mecanico"
                           aria-label="Floating label select example"
                           required
                         >
                           <option defaultValue=""></option>
-                          <option value="1">Maikol Vitta</option>
-                          <option value="2">Basilio Díaz</option>
-                          <option value="3">Jorge Martinez</option>
+                          <option value="Maikol Vitta">Maikol Vitta</option>
+                          <option value="Basilio Díaz">Basilio Díaz</option>
+                          <option value="Jorge Martinez">Jorge Martinez</option>
                         </select>
                       </td>
                     </tr>

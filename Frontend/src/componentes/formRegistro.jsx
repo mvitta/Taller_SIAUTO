@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export function Formulario() {
+export function Formulario(props) {
   const [nombre, setNombre] = useState({ valor: "", valido: false });
   const [apellido, setApellido] = useState({ valor: "", valido: false });
   const [cedula, setCedula] = useState({ valor: "", valido: false });
@@ -54,23 +54,26 @@ export function Formulario() {
             correo: correo.valor,
             direccion: direccion.valor,
             telefono: telefono.valor,
-            contra1: contra1.valor,
-            contra2: contra2.valor,
+            password: contra1.valor,
             sexo: sexo.valor,
+            rol: document.getElementById("inputRol").value,
+            fecha_registro: document.getElementById("inputFecha").value,
           };
-
-          var url = "http://localhost:4000/siAuto/registrarUsuarioPlanta";
+          console.log(datos);
+          var url = "http://localhost:4000/agregarUsuarios";
           fetch(url, {
             method: "POST",
             body: JSON.stringify(datos),
             headers: {
               "Content-Type": "application/json",
-             
             },
           })
             .then((res) => res.json())
             .catch((error) => console.error("Error:", error))
-            .then((response) => console.log("Peticion exitosa:", response));
+            .then((response) => {
+              console.log("Peticion exitosa:", response);
+              alert(response.message);
+            });
         }}
       >
         <div className="col-md-6">
@@ -90,6 +93,7 @@ export function Formulario() {
                 setNombre
               );
             }}
+            required
           />
           <div id="msgNombre" style={{ marginTop: "2%" }}></div>
         </div>
@@ -110,6 +114,7 @@ export function Formulario() {
                 setApellido
               );
             }}
+            required
           />
           <div id="msgApellido" style={{ marginTop: "2%" }}></div>
         </div>
@@ -130,6 +135,7 @@ export function Formulario() {
                 setCedula
               );
             }}
+            required
           />
           <div id="msgCedula" style={{ marginTop: "2%" }}></div>
         </div>
@@ -151,6 +157,7 @@ export function Formulario() {
                 setCorreo
               );
             }}
+            required
           />
           <div id="msgCorreo" style={{ marginTop: "2%" }}></div>
         </div>
@@ -172,6 +179,7 @@ export function Formulario() {
                 setDireccion
               );
             }}
+            required
           />
           <div id="msgDireccion" style={{ marginTop: "2%" }}></div>
         </div>
@@ -192,6 +200,7 @@ export function Formulario() {
                 setTelefono
               );
             }}
+            required
           />
           <div id="msgTelefono" style={{ marginTop: "2%" }}></div>
         </div>
@@ -212,6 +221,7 @@ export function Formulario() {
                 setContra1
               );
             }}
+            required
           />
           <div id="msgContra1" style={{ marginTop: "2%" }}></div>
         </div>
@@ -232,10 +242,11 @@ export function Formulario() {
                 setContra2
               );
             }}
+            required
           />
           <div id="msgContra2" style={{ marginTop: "2%" }}></div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <label htmlFor="inputState" className="form-label">
             <strong>Sexo</strong>
           </label>
@@ -252,6 +263,7 @@ export function Formulario() {
                 setSexo({ ...sexo, valor: v, valido: true });
               }
             }}
+            required
           >
             <option key={21} value=""></option>
             <option key={22} value="Femenino">
@@ -262,6 +274,31 @@ export function Formulario() {
             </option>
           </select>
           <div id="msgSexo" style={{ marginTop: "2%" }}></div>
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="inputState" className="form-label">
+            <strong>Fecha</strong>
+          </label>
+          <input
+            type="datetime-local"
+            className="form-control"
+            id="inputFecha"
+            required
+          />
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="inputNombre" className="form-label">
+            <strong>Rol</strong>
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="inputRol"
+            disabled
+            value={props.rol}
+            style={{ color: "white", backgroundColor: "blue" }}
+          />
+          <div id="msgNombre" style={{ marginTop: "2%" }}></div>
         </div>
         <div className="col-12" style={{ textAlign: "center" }}>
           <button type="submit" className="btn btn-primary">
