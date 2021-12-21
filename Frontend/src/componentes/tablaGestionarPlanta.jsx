@@ -195,26 +195,28 @@ export function TablaGestionarUsuarioPlanta() {
             onClick={(e) => {
               const inputRadios = document.getElementsByName("options");
               let id = 0;
+              let pos = 0;
               for (let i = 0; i < inputRadios.length; i++) {
                 const input = inputRadios[i];
                 if (input.checked) {
                   id = parseInt(input.id);
                   break;
                 }
+                pos++
               }
 
-              console.log(id);
+              console.log(pos);
 
               //--------------------------------------------------//
-              document.getElementById("editID").value = data[id]._id;
-              document.getElementById("editNombre").value = data[id].nombre;
-              document.getElementById("editApellido").value = data[id].apellido;
-              document.getElementById("editCedula").value = data[id].cedula;
-              document.getElementById("editCorreo").value = data[id].correo;
+              document.getElementById("editID").value = data[pos]._id;
+              document.getElementById("editNombre").value = data[pos].nombre;
+              document.getElementById("editApellido").value = data[pos].apellido;
+              document.getElementById("editCedula").value = data[pos].cedula;
+              document.getElementById("editCorreo").value = data[pos].correo;
               document.getElementById("editDireccion").value =
-                data[id].direccion;
-              document.getElementById("editTelefono").value = data[id].telefono;
-              document.getElementById("editSexo").value = data[id].sexo;
+                data[pos].direccion;
+              document.getElementById("editTelefono").value = data[pos].telefono;
+              document.getElementById("editSexo").value = data[pos].sexo;
               // --------------------------------------------------//
             }}
           >
