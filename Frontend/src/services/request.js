@@ -1,4 +1,4 @@
-export const fetchData = async function (url, user) {
+export const validarUser = async function (url, user) {
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -8,9 +8,27 @@ export const fetchData = async function (url, user) {
       },
     });
     const data = await response.json();
+    if (data) {
+      return [true, data];
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.log(new Error(error));
+    return false;
+  }
+};
+
+export const fetchData = async function (url) {
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+    });
+    const data = await response.json();
     return data;
   } catch (error) {
-    return new Error(error);
+    console.log(new Error(error));
+    return false;
   }
 };
 

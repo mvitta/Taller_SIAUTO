@@ -1,8 +1,8 @@
-import { Header } from "../componentes/header";
-import { Menu } from "../componentes/menu";
-import { ServiciosAsignados } from "../componentes/tablaServiciosAsignados";
-import { Footer } from "../componentes/footer";
-import { Titulo } from "../componentes/titulo";
+import { Header } from "../components/header";
+import { Menu } from "../components/menu";
+import { ServiciosAsignados } from "../components/tablaServiciosAsignados";
+import { Footer } from "../components/footer";
+import { Titulo } from "../components/titulo";
 
 export function ServAsignados() {
   return (

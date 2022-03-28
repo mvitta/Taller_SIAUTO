@@ -1,17 +1,17 @@
 .fondo {
     background: rgb(2, 0, 36);
-    background: radial-gradient(circle, rgba(0, 0, 0, 1) 16%, rgb(90, 87, 89) 35%, rgba(0, 0, 0, 1) 65%);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.39) 16%, rgb(90, 87, 89) 35%, rgba(0, 0, 0, 1) 65%);
 }
 
 .terminado {
     background: rgb(23, 101, 7);
-    background: radial-gradient(circle, rgba(23, 101, 7, 1) 14%, rgba(41, 121, 9, 1) 23%, rgba(24, 51, 9, 1) 100%);
+    background: radial-gradient(circle, rgba(23, 101, 7, 0.76) 14%, rgba(41, 121, 9, 1) 23%, rgba(24, 51, 9, 1) 100%);
     color: white;
 }
 
 .sinTerminar {
     background: rgb(129, 11, 11);
-    background: radial-gradient(circle, rgba(177, 51, 51, 0.897) 14%, rgb(167, 38, 38) 23%, rgb(201, 21, 21) 100%);
+    background: radial-gradient(circle, rgba(177, 51, 51, 0.76) 14%, rgb(167, 38, 38) 23%, rgb(201, 21, 21) 100%);
     color: white;
 }
 

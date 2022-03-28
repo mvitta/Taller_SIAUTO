@@ -1,0 +1,10 @@
+.containerNotFound {
+    text-align: center;
+    padding: 2%;
+    color: blue;
+    margin-top: 5%;
+    background-color: rgba(222, 231, 231, 0.603);
+    font-size: x-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}

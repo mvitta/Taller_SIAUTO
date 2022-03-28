@@ -1,8 +1,8 @@
 import React from "react";
-import { Header } from "../componentes/header";
-import { Footer } from "../componentes/footer";
-import { Titulo } from "../componentes/titulo";
-import { Login } from "../componentes/formLogin";
+import { Header } from "../components/header";
+import { Footer } from "../components/footer";
+import { Titulo } from "../components/titulo";
+import { Login } from "../components/formLogin";
 
 export function IniciarSesion(props) {
   return (

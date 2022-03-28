@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"; // V6 -> nuevos cambios
 import { TGestionMecanico } from "./pages/gestionarMecanico";
 import { GestionarUsuariosPlanta } from "./pages/gestionarUsuariosPlanta";
@@ -13,10 +14,11 @@ import { SeccionInicio } from "./pages/seccionInicio";
 import { IniciarSesion } from "./pages/iniciaSesion";
 import { PerfilUsuario } from "./pages/PerfilUsuario";
 import { UserContext } from "./context/UserContext";
-import { useState } from "react";
+import PageNotFound from "./components/notFound";
 
 function App() {
-  const [user, setUser] = useState("esta nulo");
+  const [user, setUser] = useState(false);
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
@@ -40,6 +42,7 @@ function App() {
           <Route path="/ServiciosAsignados" element={<ServAsignados />} />
           <Route path="/ServiciosEnProcesos/:id" element={<ServProceso />} />
           <Route path="/ServiciosTerminados" element={<ServTerminados />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

@@ -1,10 +1,10 @@
 import React from "react";
-import Facebook from "../Imagenes/Iconos redes sociales/facebook.png";
-import Github from "../Imagenes/Iconos redes sociales/github.png";
-import Google from "../Imagenes/Iconos redes sociales/google.png";
-import Instagram from "../Imagenes/Iconos redes sociales/instagram.png";
-import Linkedin from "../Imagenes/Iconos redes sociales/linkedin.png";
-import Twitter from "../Imagenes/Iconos redes sociales/twitter.png";
+import Facebook from "../assets/Iconos redes sociales/facebook.png";
+import Github from "../assets/Iconos redes sociales/github.png";
+import Google from "../assets/Iconos redes sociales/google.png";
+import Instagram from "../assets/Iconos redes sociales/instagram.png";
+import Linkedin from "../assets/Iconos redes sociales/linkedin.png";
+import Twitter from "../assets/Iconos redes sociales/twitter.png";
 
 export function Footer() {
   const redes = [
@@ -40,7 +40,7 @@ export function Footer() {
         <section className="mb-4">
           {redes.map((red) => (
             <a
-              key={red.id}
+              key={crypto.randomUUID()}
               className="btn btn-outline-light btn-floating m-1"
               href="#!"
               role="button"

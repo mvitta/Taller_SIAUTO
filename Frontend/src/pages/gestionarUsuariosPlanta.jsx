@@ -1,9 +1,9 @@
 import React from "react";
-import { Header } from "../componentes/header";
-import { Menu } from "../componentes/menu";
-import { Footer } from "../componentes/footer";
-import { TablaGestionarUsuarioPlanta } from "../componentes/tablaGestionarPlanta";
-import { Titulo } from "../componentes/titulo";
+import { Header } from "../components/header";
+import { Menu } from "../components/menu";
+import { Footer } from "../components/footer";
+import { TablaGestionarUsuarioPlanta } from "../components/tablaGestionarPlanta";
+import { Titulo } from "../components/titulo";
 
 export function GestionarUsuariosPlanta(params) {
   return (

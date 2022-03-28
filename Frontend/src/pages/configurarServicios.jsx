@@ -1,8 +1,8 @@
-import { Header } from "../componentes/header";
-import { Menu } from "../componentes/menu";
-import { ConfigurarServicio } from "../componentes/configurarServicio";
-import { Footer } from "../componentes/footer";
-import { Titulo } from "../componentes/titulo";
+import { Header } from "../components/header";
+import { Menu } from "../components/menu";
+import { ConfigurarServicio } from "../components/configurarServicio";
+import { Footer } from "../components/footer";
+import { Titulo } from "../components/titulo";
 
 export function ConfigServicio() {
   return (

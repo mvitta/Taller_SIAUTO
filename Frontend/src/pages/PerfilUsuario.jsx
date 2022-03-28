@@ -1,9 +1,9 @@
 import React from "react";
-import { Header } from "../componentes/header";
-import { Menu } from "../componentes/menu";
-import { Footer } from "../componentes/footer";
-import { Perfil } from "../componentes/Perfil";
-import { Titulo } from "../componentes/titulo";
+import { Header } from "../components/header";
+import { Menu } from "../components/menu";
+import { Footer } from "../components/footer";
+import { Perfil } from "../components/Perfil";
+import { Titulo } from "../components/titulo";
 
 export function PerfilUsuario() {
   return (

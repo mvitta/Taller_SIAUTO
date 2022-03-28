@@ -1,18 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom"; // V6 -> nuevos cambios
-import discos from "../Imagenes/Imagenes servicio en proceso/discos.jpg";
-import alineacion from "../Imagenes/Imagenes servicio en proceso/alineacion.jpg";
-import amortiguadores from "../Imagenes/Imagenes servicio en proceso/amortiguadores.jpg";
-import aceite from "../Imagenes/Imagenes servicio en proceso/cambioAceite.jpg";
-import pastillas from "../Imagenes/Imagenes servicio en proceso/pastillas.jpg";
-import frenos from "../Imagenes/Imagenes servicio en proceso/revisionFrenos.jpg";
-import rotacion from "../Imagenes/Imagenes servicio en proceso/rotacion.jpg";
-import suspension from "../Imagenes/Imagenes servicio en proceso/suspension.jpg";
+import discos from "../assets/Imagenes servicio en proceso/discos.jpg";
+import alineacion from "../assets/Imagenes servicio en proceso/alineacion.jpg";
+import amortiguadores from "../assets/Imagenes servicio en proceso/amortiguadores.jpg";
+import aceite from "../assets/Imagenes servicio en proceso/cambioAceite.jpg";
+import pastillas from "../assets/Imagenes servicio en proceso/pastillas.jpg";
+import frenos from "../assets/Imagenes servicio en proceso/revisionFrenos.jpg";
+import rotacion from "../assets/Imagenes servicio en proceso/rotacion.jpg";
+import suspension from "../assets/Imagenes servicio en proceso/suspension.jpg";
 
 export function ServiciosEnProceso() {
   const [data, setData] = React.useState({ msg: "Sin Servicios" });
-  const navigate = useNavigate();
   let cont = 0;
   let contServiciosTerminados = 0;
 

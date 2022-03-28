@@ -1,8 +1,8 @@
-import { Header } from "../componentes/header";
-import { Menu } from "../componentes/menu";
-import { ServiciosTerminados } from "../componentes/tablaServicioTerminado";
-import { Footer } from "../componentes/footer";
-import { Titulo } from "../componentes/titulo";
+import { Header } from "../components/header";
+import { Menu } from "../components/menu";
+import { ServiciosTerminados } from "../components/tablaServicioTerminado";
+import { Footer } from "../components/footer";
+import { Titulo } from "../components/titulo";
 
 export function ServTerminados() {
   return (
