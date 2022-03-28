@@ -5,7 +5,7 @@ import "../css/perfil.css";
 
 export function Perfil() {
   const { user } = React.useContext(UserContext);
-
+  console.log();
   return (
     <div className="container">
       <div className="row">
