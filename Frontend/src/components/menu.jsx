@@ -5,19 +5,21 @@ import { UserContext } from "../context/UserContext";
 
 export function Menu() {
   const [opcionesMenu, setOpcionesMenu] = useState([]);
-  const { user, setUser } = React.useContext(UserContext);
+  const { user } = React.useContext(UserContext);
 
   // console.log("userContext MENU:", user);
-  console.log(user);
 
-  useEffect(() => {
-    const fetch = async () => {
-      const opmenu = await getDatosPermisos();
-      setOpcionesMenu(opmenu);
-    };
+  useEffect(
+    function () {
+      const fetch = async function () {
+        const opmenu = await getDatosPermisos();
+        setOpcionesMenu(opmenu);
+      };
 
-    fetch();
-  }, []);
+      fetch();
+    },
+    [opcionesMenu]
+  );
 
   return (
     <nav
@@ -29,8 +31,8 @@ export function Menu() {
           {opcionesMenu.map(
             (elemento) =>
               // si en el vector de permisos se encuenta lo que esta almacenado en sesion, muestra el elemento
-              elemento.permisos.includes(user.rol) && (
-                <li className="nav-item" key={elemento.id}>
+              elemento.permisos.includes(user[1].rol) && (
+                <li className="nav-item" key={crypto.randomUUID()}>
                   <Link className="nav-link" to={elemento.ruta}>
                     {elemento.valor}
                   </Link>

@@ -1,8 +1,8 @@
-import { Header } from "../componentes/header";
-import { Menu } from "../componentes/menu";
-import { Footer } from "../componentes/footer";
-import { Titulo } from "../componentes/titulo";
-import { Inicio } from "../componentes/inicio";
+import { Header } from "../components/header";
+import { Menu } from "../components/menu";
+import { Footer } from "../components/footer";
+import { Titulo } from "../components/titulo";
+import { Inicio } from "../components/inicio";
 
 export function SeccionInicio() {
   return (

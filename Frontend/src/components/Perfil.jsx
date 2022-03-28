@@ -1,11 +1,11 @@
 import React from "react";
 import { UserContext } from "../context/UserContext";
-import foto from "../Imagenes/Imagenes servicio en proceso/Perfil.jpg";
+import foto from "../assets/Imagenes servicio en proceso/Perfil.jpg";
 
 export function Perfil() {
   const { user } = React.useContext(UserContext);
 
-  // console.log("userContext PERFIL: ", user);
+  console.log("userContext PERFIL: ", user);
 
   const myStyle = {
     color: "white",
@@ -71,9 +71,7 @@ export function Perfil() {
               <input
                 type="text"
                 className="form-control"
-                value={user.cedula}
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
+                value={user[1].cedula}
                 disabled
               />
             </div>
@@ -84,9 +82,7 @@ export function Perfil() {
               <input
                 type="text"
                 className="form-control"
-                value={user.nombre}
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
+                value={user[1].nombre}
                 disabled
               />
             </div>
@@ -97,9 +93,7 @@ export function Perfil() {
               <input
                 type="text"
                 className="form-control"
-                value={user.apellido}
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
+                value={user[1].apellido}
                 disabled
               />
             </div>
@@ -110,9 +104,7 @@ export function Perfil() {
               <input
                 type="text"
                 className="form-control"
-                value={user.correo}
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
+                value={user[1].correo}
                 disabled
               />
             </div>
@@ -125,9 +117,7 @@ export function Perfil() {
               <input
                 type="text"
                 className="form-control"
-                value={user.direccion}
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
+                value={user[1].direccion}
                 disabled
               />
             </div>
@@ -138,9 +128,7 @@ export function Perfil() {
               <input
                 type="text"
                 className="form-control"
-                value={user.telefono}
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
+                value={user[1].telefono}
                 disabled
               />
             </div>
@@ -151,9 +139,7 @@ export function Perfil() {
               <input
                 type="text"
                 className="form-control"
-                value={user.sexo}
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
+                value={user[1].sexo}
                 disabled
               />
             </div>

@@ -1,8 +1,8 @@
-import { Header } from "../componentes/header";
-import { Menu } from "../componentes/menu";
-import { ServiciosEnProceso } from "../componentes/servicioEnProceso";
-import { Footer } from "../componentes/footer";
-import { Titulo } from "../componentes/titulo";
+import { Header } from "../components/header";
+import { Menu } from "../components/menu";
+import { ServiciosEnProceso } from "../components/servicioEnProceso";
+import { Footer } from "../components/footer";
+import { Titulo } from "../components/titulo";
 
 export function ServProceso() {
   return (

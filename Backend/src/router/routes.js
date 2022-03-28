@@ -31,7 +31,10 @@ router.post("/login", (req, res) => {
 //obtiene los usuarios de planta
 router.get("/usuariosPlantas", (req, res) => {
   usuariosSchema
-    .find({ rol: "planta" })
+    .find(
+      { rol: "planta" },
+      { password: 0, fecha_registro: 0, __v: 0, rol: 0, _id: 0 }
+    )
     .then((data) => res.status(200).json(data))
     .catch((error) => res.json({ message: error }));
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // V6 -> nuevos cambios
 import { UserContext } from "../context/UserContext";
-import { fetchData } from "../services/request";
+import { validarUser } from "../services/request";
 import "../css/formLogin.css";
 
 export function Login() {
@@ -15,26 +15,18 @@ export function Login() {
         .addEventListener("submit", function (e) {
           const inputUser = document.getElementById("exampleInputEmail1").value;
           let data = { correo: inputUser };
-          fetchData("http://localhost:4000/login", data).then((resolve) =>
-            setUser(resolve)
-          );
+          validarUser("http://localhost:4000/login", data).then((resolve) => {
+            if (resolve) {
+              setUser(resolve);
+              navigate("Inicio");
+            }
+          });
 
           e.preventDefault();
         });
     },
-    [setUser]
+    [setUser, navigate, user]
   );
-
-  React.useEffect(() => {
-    if (user) {
-      // navigate("/Inicio");
-      const nombre = user.correo;
-      const apellido = user.apellido;
-      console.table({ nombre, apellido });
-    } else {
-      console.log("Ingresa un usuario valido");
-    }
-  }, [user, navigate]);
 
   return (
     <React.Fragment>
@@ -60,17 +52,6 @@ export function Login() {
             className="form-control"
             id="exampleInputPassword1"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Rol de Usuario
-          </label>
-          <select className="form-select" id="rol" name="rol">
-            <option value=""></option>
-            <option value="administrador">administrador</option>
-            <option value="mecanico">mecanico</option>
-            <option value="planta">planta</option>
-          </select>
         </div>
         <div className="mb-3 form-check">
           <input

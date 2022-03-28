@@ -1,9 +1,9 @@
 import React from "react";
-import { Header } from "../componentes/header";
-import { Menu } from "../componentes/menu";
-import { Formulario } from "../componentes/formRegistro";
-import { Footer } from "../componentes/footer";
-import { Titulo } from "../componentes/titulo";
+import { Header } from "../components/header";
+import { Menu } from "../components/menu";
+import { Formulario } from "../components/formRegistro";
+import { Footer } from "../components/footer";
+import { Titulo } from "../components/titulo";
 
 export function AddMecanico() {
   return (
