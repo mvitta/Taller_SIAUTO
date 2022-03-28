@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import discos from "../assets/Imagenes servicio en proceso/discos.jpg";
-import alineacion from "../assets/Imagenes servicio en proceso/alineacion.jpg";
-import amortiguadores from "../assets/Imagenes servicio en proceso/amortiguadores.jpg";
-import aceite from "../assets/Imagenes servicio en proceso/cambioAceite.jpg";
-import pastillas from "../assets/Imagenes servicio en proceso/pastillas.jpg";
-import frenos from "../assets/Imagenes servicio en proceso/revisionFrenos.jpg";
-import rotacion from "../assets/Imagenes servicio en proceso/rotacion.jpg";
-import suspension from "../assets/Imagenes servicio en proceso/suspension.jpg";
+import discos from "../assets/Imagenes_servicio_en_proceso/discos.jpg";
+import alineacion from "../assets/Imagenes_servicio_en_proceso/alineacion.jpg";
+import amortiguadores from "../assets/Imagenes_servicio_en_proceso/amortiguadores.jpg";
+import aceite from "../assets/Imagenes_servicio_en_proceso/cambioAceite.jpg";
+import pastillas from "../assets/Imagenes_servicio_en_proceso/pastillas.jpg";
+import frenos from "../assets/Imagenes_servicio_en_proceso/revisionFrenos.jpg";
+import rotacion from "../assets/Imagenes_servicio_en_proceso/rotacion.jpg";
+import suspension from "../assets/Imagenes_servicio_en_proceso/suspension.jpg";
 
 export function ServiciosEnProceso() {
   const [data, setData] = React.useState({ msg: "Sin Servicios" });
