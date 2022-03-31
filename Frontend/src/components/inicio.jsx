@@ -1,7 +1,7 @@
 import React from "react";
-import Presentacion1 from "../assets/Imagenes servicio en proceso/rotacion.jpg";
-import Presentacion2 from "../assets/Imagenes servicio en proceso/suspension.jpg";
-import Presentacion3 from "../assets/Imagenes servicio en proceso/pastillas.jpg";
+import Presentacion1 from "../assets/Imagenes_servicio_en_proceso/rotacion.jpg";
+import Presentacion2 from "../assets/Imagenes_servicio_en_proceso/suspension.jpg";
+import Presentacion3 from "../assets/Imagenes_servicio_en_proceso/pastillas.jpg";
 
 export function Inicio() {
   return (

@@ -57,14 +57,16 @@ export function ConfigurarServicio() {
               )}
               {Object.keys(data).map((e) => {
                 return (
-                  <tr key={data[e]._id}>
-                    <td>
+                  <tr key={crypto.randomUUID()}>
+                    <td key={crypto.randomUUID()}>
                       <input type="radio" name="options" id={data[e]._id} />
                     </td>
-                    <td>{data[e]._id}</td>
-                    <td>{data[e].servicio}</td>
-                    <td>{data[e].descripcion}</td>
-                    <td style={style}>{data[e].duracion}</td>
+                    <td key={crypto.randomUUID()}>{data[e]._id}</td>
+                    <td key={crypto.randomUUID()}>{data[e].servicio}</td>
+                    <td key={crypto.randomUUID()}>{data[e].descripcion}</td>
+                    <td key={crypto.randomUUID()} style={style}>
+                      {data[e].duracion}
+                    </td>
                   </tr>
                 );
               })}

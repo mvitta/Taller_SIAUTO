@@ -14,7 +14,7 @@ export const validarUser = async function (url, user) {
       return false;
     }
   } catch (error) {
-    console.log(new Error(error));
+    alert(new Error(error));
     return false;
   }
 };

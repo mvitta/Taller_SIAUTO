@@ -20,7 +20,7 @@ router.post("/login", (req, res) => {
   const correo = req.body;
 
   usuariosSchema
-    .findOne(correo)
+    .findOne(correo, { password: 0, __v: 0, _id: 0 })
     .then((data) => {
       console.log(data);
       return res.json(data);
@@ -49,7 +49,7 @@ router.get("/usuariosMecanicos", (req, res) => {
 
 router.get("/servicios", (req, res) => {
   serviciosSchema
-    .find()
+    .find({}, {_id: 0 })
     .then((data) => res.status(200).json(data))
     .catch((error) => res.json({ message: error }));
 });
