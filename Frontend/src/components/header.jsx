@@ -1,8 +1,22 @@
 import React from "react";
 import "../css/style.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 export function Header() {
+  const { user, setUser } = React.useContext(UserContext);
+  const navigate = useNavigate();
+
+  React.useEffect(
+    function () {
+      document.getElementById("logout").addEventListener("click", function () {
+        navigate("/");
+        setUser([false], {});
+      });
+    },
+    [setUser, navigate]
+  );
+
   return (
     <div className="container">
       <div
@@ -23,28 +37,28 @@ export function Header() {
                 mb-md-0
               "
         >
-          <li key={11}>
+          <li>
             <Link className="nav-link px-2 text-white" to="/Inicio">
               Inicio
             </Link>
           </li>
 
-          <li key={12}>
+          <li>
             <a href="#!" className="nav-link px-2 text-white">
               Features
             </a>
           </li>
-          <li key={13}>
+          <li>
             <a href="#!" className="nav-link px-2 text-white">
               Pricing
             </a>
           </li>
-          <li key={14}>
+          <li>
             <a href="#!" className="nav-link px-2 text-white">
               FAQs
             </a>
           </li>
-          <li key={15}>
+          <li>
             <a href="#!" className="nav-link px-2 text-white">
               About
             </a>
@@ -61,10 +75,12 @@ export function Header() {
         </form>
 
         <div className="text-end">
-          <button type="button" className="btn btn-outline-light me-2">
-            Iniciar Sesion
-          </button>
-          <button type="button" className="btn btn-warning">
+          {user[0] ?? (
+            <button type="button" className="btn btn-outline-light me-2">
+              Iniciar Sesion
+            </button>
+          )}
+          <button type="button" className="btn btn-warning" id="logout">
             Cerrar Sesion
           </button>
         </div>

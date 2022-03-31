@@ -27,6 +27,26 @@ export function Login() {
     },
     [setUser, navigate, user]
   );
+  // ESTO NO DEBE REPETIRSE
+  React.useEffect(
+    function () {
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          const inputUser = document.getElementById("exampleInputEmail1").value;
+          let data = { correo: inputUser };
+          validarUser("http://localhost:4000/login", data).then((resolve) => {// las url no se tienen que ver
+            if (resolve) {
+              setUser(resolve);
+              navigate("Inicio");
+            }
+          });
+
+          e.preventDefault();
+        }
+      });
+    },
+    [setUser, navigate]
+  );
 
   return (
     <React.Fragment>
@@ -69,7 +89,7 @@ export function Login() {
           </a>
         </div>
         <div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" id="login">
             Ingresar
           </button>
           <button type="reset" className="btn btn-primary">

@@ -13,9 +13,14 @@ export function TablaGestionarUsuarioPlanta() {
   }, []);
 
   useEffect(function () {
-    document.getElementById("myTable").addEventListener("click", function (e) {
-      const record = e.target;
-      console.log(record);
+    const tablePlanta = document.getElementById("myTable");
+    tablePlanta.addEventListener("click", function (e) {
+      let idRow = parseInt(e.target.className) + 1;
+      if (idRow) {
+        const rows = document.getElementsByTagName("tr");
+        const rowSelected = rows[idRow];
+        console.log(rowSelected.textContent.split(" ")); // contenido de la fila que voy a modificar en la base de datos
+      }
     });
   }, []);
 
@@ -46,11 +51,15 @@ export function TablaGestionarUsuarioPlanta() {
               </tr>
             </thead>
             <tbody>
-              {data.map((object) => {
+              {data.map((object, index) => {
                 return (
                   <tr key={crypto.randomUUID()}>
                     {Object.entries(object).map((value) => {
-                      return <td key={crypto.randomUUID()}>{value[1]}</td>;
+                      return (
+                        <td key={crypto.randomUUID()} className={index}>
+                          {value[1] + " "}
+                        </td>
+                      );
                     })}
                   </tr>
                 );

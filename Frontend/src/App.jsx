@@ -17,7 +17,7 @@ import { UserContext } from "./context/UserContext";
 import PageNotFound from "./components/notFound";
 
 function App() {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState([false, {}]);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

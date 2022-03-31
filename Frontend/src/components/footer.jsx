@@ -1,38 +1,16 @@
 import React from "react";
-import Facebook from "../assets/Iconos redes sociales/facebook.png";
-import Github from "../assets/Iconos redes sociales/github.png";
-import Google from "../assets/Iconos redes sociales/google.png";
-import Instagram from "../assets/Iconos redes sociales/instagram.png";
-import Linkedin from "../assets/Iconos redes sociales/linkedin.png";
-import Twitter from "../assets/Iconos redes sociales/twitter.png";
+import { socialMedia } from "../services/socialMedia";
 
 export function Footer() {
-  const redes = [
-    {
-      id: 1212,
-      icono: Facebook,
-    },
-    {
-      id: 2214,
-      icono: Github,
-    },
-    {
-      id: 3215,
-      icono: Google,
-    },
-    {
-      id: 2146,
-      icono: Instagram,
-    },
-    {
-      id: 5217,
-      icono: Linkedin,
-    },
-    {
-      id: 6218,
-      icono: Twitter,
-    },
-  ];
+  const [redes, setRedes] = React.useState([]);
+
+  socialMedia
+    .then((resolve) => {
+      setRedes(resolve);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
   return (
     <footer className="text-center text-white">
@@ -41,7 +19,7 @@ export function Footer() {
           {redes.map((red) => (
             <a
               key={crypto.randomUUID()}
-              className="btn btn-outline-light btn-floating m-1"
+              className="btn btn-floating m-1"
               href="#!"
               role="button"
             >
