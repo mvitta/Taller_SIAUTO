@@ -14,7 +14,9 @@ import { SeccionInicio } from "./pages/seccionInicio";
 import { IniciarSesion } from "./pages/iniciaSesion";
 import { PerfilUsuario } from "./pages/PerfilUsuario";
 import { UserContext } from "./context/UserContext";
-import PageNotFound from "./components/notFound";
+import PageNotFound from "./components/PageNotFound";
+import '../src/App.css'
+
 
 function App() {
   const [user, setUser] = useState([false, {}]);
@@ -22,6 +24,8 @@ function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
+
+
         <Routes>
           <Route path="/" element={<IniciarSesion />} />
           <Route path="/Inicio" element={<SeccionInicio />} />
@@ -44,6 +48,8 @@ function App() {
           <Route path="/ServiciosTerminados" element={<ServTerminados />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+
+        
       </BrowserRouter>
     </UserContext.Provider>
   );

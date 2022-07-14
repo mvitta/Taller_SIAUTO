@@ -8,21 +8,21 @@
 
     {
       "id": "2",
-      "valor": "Gestionar usuarios de planta",
+      "valor": "Usuarios",
       "permisos": ["administrador"],
       "ruta": "/GestionarUsuariosDePlanta"
     },
 
     {
       "id": "3",
-      "valor": "Registrar usuario de planta",
+      "valor": "Registrar usuario",
       "permisos": ["administrador"],
       "ruta": "/registrarUsuarioPlanta"
     },
 
     {
       "id": "4",
-      "valor": "Gestionar mecanicos",
+      "valor": "Mecanicos",
       "permisos": ["planta", "administrador"],
       "ruta": "/GestionarMecanicos"
     },
@@ -43,7 +43,7 @@
 
     {
       "id": "7",
-      "valor": "Ver agenda de citas",
+      "valor": "Agenda",
       "permisos": ["planta", "administrador"],
       "ruta": "/VerAgendaCitas"
     },

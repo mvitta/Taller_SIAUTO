@@ -1,13 +1,13 @@
 import React from "react";
-import { Header } from "../components/header";
-import { Footer } from "../components/footer";
-import { Titulo } from "../components/titulo";
-import { Login } from "../components/formLogin";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+import { Titulo } from "../components/Titulo";
+import { Login } from "../components/Login";
 
 export function IniciarSesion(props) {
   return (
-    <div>
-      <header className="p-3 fondo text-white">
+    <>
+      <header className="fondo">
         <Header />
       </header>
       <div
@@ -21,6 +21,6 @@ export function IniciarSesion(props) {
       <footer className="fondo text-center text-white">
         <Footer />
       </footer>
-    </div>
+    </>
   );
 }

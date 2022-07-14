@@ -14,7 +14,8 @@ export const validarUser = async function (url, user) {
       return false;
     }
   } catch (error) {
-    alert(new Error(error));
+    console.log();
+    new Error(error);
     return false;
   }
 };
@@ -29,6 +30,24 @@ export const fetchData = async function (url) {
   } catch (error) {
     console.log(new Error(error));
     return false;
+  }
+};
+
+export const registerUser = async function (data) {
+  try {
+    let url = "http://localhost:4000/agregarUsuarios";
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const res = await response.json();
+    console.log("Datos Enviados Exitosamente: ", res);
+  } catch (error) {
+    console.log(new Error(error));
   }
 };
 

@@ -1,23 +1,20 @@
 import React from "react";
-import { Header } from "../components/header";
-import { Menu } from "../components/menu";
-import { Footer } from "../components/footer";
+import { Header } from "../components/Header";
+import { Menu } from "../components/Menu";
+import { Footer } from "../components/Footer";
 import { Perfil } from "../components/Perfil";
-import { Titulo } from "../components/titulo";
+import { Titulo } from "../components/Titulo";
 
 export function PerfilUsuario() {
   return (
-    <div>
-      <header className="p-3 fondo text-white">
+    <>
+      <header className="fondo">
         <Header />
       </header>
-      <div className="container-fluid">
-        <div className="row">
+      <div>
+        <div className="container-grid">
           <Menu />
-          <main
-            className="col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-auto"
-            style={{ height: "100%" }}
-          >
+          <main>
             <Titulo titulo="Perfil Usuario" />
             <Perfil />
           </main>
@@ -26,6 +23,6 @@ export function PerfilUsuario() {
           </footer>
         </div>
       </div>
-    </div>
+    </>
   );
 }

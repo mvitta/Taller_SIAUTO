@@ -1,28 +1,28 @@
-import React from "react";
-import { Header } from "../components/header";
-import { Menu } from "../components/menu";
-import { Footer } from "../components/footer";
-import { TablaGestionarUsuarioPlanta } from "../components/tablaGestionarPlanta";
-import { Titulo } from "../components/titulo";
+import React from 'react';
+import { Header } from '../components/Header';
+import { Menu } from '../components/Menu';
+import { Footer } from '../components/Footer';
+import { TablaGestionarPlanta } from '../components/TablaGestionarPlanta';
+import { Titulo } from '../components/Titulo';
 
-export function GestionarUsuariosPlanta(params) {
+export function GestionarUsuariosPlanta() {
   return (
-    <div>
-      <header className="p-3 fondo text-white">
+    <>
+      <header className='fondo'>
         <Header />
       </header>
-      <div className="container-fluid">
-        <div className="row">
+      <div>
+        <div className='container-grid'>
           <Menu />
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-auto" style={{height: "100%"}}>
-            <Titulo titulo="Gestionar Usuarios de Planta" />
-            <TablaGestionarUsuarioPlanta />
+          <main>
+            <Titulo titulo='Gestionar Usuarios de Planta' />
+            <TablaGestionarPlanta />
           </main>
-          <footer className="fondo text-center text-white">
+          <footer className='fondo text-center text-white'>
             <Footer />
           </footer>
         </div>
       </div>
-    </div>
+    </>
   );
 }
