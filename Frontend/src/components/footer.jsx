@@ -1,5 +1,6 @@
-import React from "react";
-import { socialMedia } from "../services/socialMedia";
+import React from 'react';
+import { socialMedia } from '../services/socialMedia';
+
 
 export function Footer() {
   const [redes, setRedes] = React.useState([]);
@@ -13,9 +14,9 @@ export function Footer() {
     });
 
   return (
-    <footer className="text-center text-white">
+    <>
       <div className="container p-4">
-        <section className="mb-4">
+        <section className="">
           {redes.map((red) => (
             <a
               key={crypto.randomUUID()}
@@ -23,7 +24,7 @@ export function Footer() {
               href="#!"
               role="button"
             >
-              <img src={red.icono} alt="" />
+              <img src={red.icono} alt="" className="iconRedSocial" />
             </a>
           ))}
         </section>
@@ -36,12 +37,12 @@ export function Footer() {
           </p>
         </section>
       </div>
-      <div className="text-center p-3">
+      <div className="">
         © 2021 Copyright:
         <a className="text-white" href="#!">
           MDBootstrap.com
         </a>
       </div>
-    </footer>
+    </>
   );
 }

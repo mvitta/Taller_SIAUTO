@@ -1,22 +1,19 @@
-import { Header } from "../components/header";
-import { Menu } from "../components/menu";
-import { ServiciosTerminados } from "../components/tablaServicioTerminado";
-import { Footer } from "../components/footer";
-import { Titulo } from "../components/titulo";
+import { Header } from '../components/Header';
+import { Menu } from '../components/Menu';
+import { ServiciosTerminados } from '../components/ServiciosTerminados';
+import { Footer } from '../components/Footer';
+import { Titulo } from '../components/Titulo';
 
 export function ServTerminados() {
   return (
-    <div>
-      <header className="p-3 fondo text-white">
+    <>
+      <header className="fondo">
         <Header />
       </header>
-      <div className="container-fluid">
-        <div className="row">
+      <div>
+        <div className="container-grid">
           <Menu />
-          <main
-            className="col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-auto"
-            style={{ height: "100%" }}
-          >
+          <main>
             <Titulo titulo="Servicios Terminados" />
             <ServiciosTerminados />
           </main>
@@ -25,6 +22,6 @@ export function ServTerminados() {
           </footer>
         </div>
       </div>
-    </div>
+    </>
   );
 }

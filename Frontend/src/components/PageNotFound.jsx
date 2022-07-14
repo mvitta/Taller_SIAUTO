@@ -1,6 +1,5 @@
 import React from "react";
 import imageNotFound from "../assets/Iconos redes sociales/notFound.png";
-import "../css/notFound.css";
 
 const PageNotFound = () => {
   return (

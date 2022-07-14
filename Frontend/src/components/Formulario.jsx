@@ -1,43 +1,22 @@
 import React from "react";
+import { registerUser } from "../services/request";
 
 export function Formulario(props) {
-  React.useEffect(function () {
-    document.querySelector("#formulario").addEventListener("submit", (e) => {
-      const frData = new FormData(e.target);
-      frData.append("rol", "planta"); // o como props del componente
-      const data = Object.fromEntries(frData);
-      console.log(data);
-      e.preventDefault();
-    });
-  }, []);
+  React.useEffect(
+    function () {
+      document.querySelector("#formulario").addEventListener("submit", (e) => {
+        const frData = new FormData(e.target);
+        frData.append("rol", props.rol);
+        const data = Object.fromEntries(frData);
 
-  // function campoCorrecto(id) {
-  //   document.getElementById(id).className = "blanco";
-  // }
+        registerUser(data);
 
-  // function campoError(id, msg) {
-  //   const campo = document.getElementById(id);
-  //   campo.className = "alert alert-danger";
-  //   campo.innerHTML = msg;
-  // }
+        e.preventDefault();
+      });
+    },
+    [props.rol]
+  );
 
-  // function validar(value, id, expReg, st, fst) {
-  //   if (expReg.test(value)) {
-  //     campoCorrecto(id);
-  //     fst({
-  //       ...st,
-  //       valor: value,
-  //       valido: true,
-  //     });
-  //   } else {
-  //     campoError(id, "El campo no es valido");
-  //     fst({
-  //       ...st,
-  //       valor: value,
-  //       valido: false,
-  //     });
-  //   }
-  // }
   return (
     <div className="containerForm" id="container">
       <form className="row g-3" id="formulario">
@@ -117,19 +96,14 @@ export function Formulario(props) {
             type="password"
             className="form-control"
             id="password1"
-            name="password1"
+            name="password"
           />
         </div>
         <div className="col-md-6">
           <label htmlFor="password2  " className="form-label">
             <strong>Repita Contraseña</strong>
           </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password2"
-            name="password2"
-          />
+          <input type="password" className="form-control" id="password2" />
         </div>
         <div className="col-md-6">
           <label htmlFor="sexo" className="form-label">
@@ -147,8 +121,8 @@ export function Formulario(props) {
           <input
             type="datetime-local"
             className="form-control"
-            id="fecha"
-            name="fecha"
+            id="fecha_registro"
+            name="fecha_registro"
           />
         </div>
         <div className="col-12" style={{ textAlign: "center" }}>
@@ -167,17 +141,3 @@ export function Formulario(props) {
     </div>
   );
 }
-// var url = "http://localhost:4000/agregarUsuarios";
-// fetch(url, {
-//   method: "POST",
-//   body: JSON.stringify(datos),
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// })
-//   .then((data) => data.json())
-//   .catch((error) => console.error("Error:", error))
-//   .then((dataponse) => {
-//     console.log("Peticion exitosa:", dataponse);
-//     alert(dataponse.message);
-//   });
